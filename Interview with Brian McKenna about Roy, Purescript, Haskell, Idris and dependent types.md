@@ -34,5 +34,5 @@ Roy was first!
 PureScript had almost the exact same goals as Roy but had a much  
 better implementation. Quoting the PureScript wiki:
 
- Roy is probably the most similar language on the list, and was a  
-large influence on the development of PureScript.
+>Roy is probably the most similar language on the list, and was a  
+>large influence on the development of PureScript.
