@@ -61,6 +61,7 @@ I love lazyness in concept. I think the idea that computation only occurs when i
     ...
 
 ![](https://miro.medium.com/max/284/1*TKFIhHLhfGTz5uMBn6NfkQ.png)
+[Hey there! This is Learn You Some Erlang for great good!](https://learnyousomeerlang.com/).
 
 
 Essentially, it’s because I am lazy. Much like resource management, contract management is a slow, manual painful process. By contract management, I mean verifying that the form of data a function recieves is the form of data that it expects. A Hindley-Milner style type system allows me to offload that tedious work to the compiler. Computers are essentially better at that kind of tedious work than humans.
