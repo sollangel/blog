@@ -128,3 +128,27 @@ write combinators to fill in the gaps for developing user interfaces
 to see how close we get to current FRP libraries.
 
 **You recently gave a talk about** [**Idris**](http://www.idris-lang.org/)**, a language with** [**dependent types**](https://en.wikipedia.org/wiki/Dependent_type)**. Could you explain what are dependent types?**
+
+>**["Idris: Practical Dependent Types with Practical Examples" by Brian McKenna](https://www.youtube.com/watch?v=4i7KrG1Afbk&feature=youtu.be).**
+In non-dependently typed languages we have a way of making values  
+depend upon other values: functions! In dependent typed languages we  
+have those functions, but also functions which can return types.
+
+Haskell has two completely separate languages: the language of values  
+and the language of types. Recent versions of GHC give a way of  
+promoting certain values up to types, but if you want to write a  
+function over those values, you’ll have to write a version at the  
+value level and separately at the type level.
+
+Dependent-types remove the separation. If you write a function, you  
+can reuse it for terms at any level.
+
+**What are the practical benefits of using a language with dependent types?**
+
+Since you can use values in your types, you can specify a lot more.  
+For example, I can specify that list reversal is an involution, i.e.  
+reversing twice is the same as not reversing at all:
+
+   reverseInvolution : (xs : List a) -> reverse (reverse xs) = r
+
+
