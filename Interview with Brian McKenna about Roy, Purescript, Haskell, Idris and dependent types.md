@@ -153,4 +153,51 @@ reversing twice is the same as not reversing at all:
 
     reverseInvolution : (xs : List a) -> reverse (reverse xs) = r
 
+No need for tests — if I implement a value for that type, I have a  
+proof for all possible values.
+
+Or we can specify that a sort function will generate a list where each  
+element is smaller than the next. The implementation of sort will only  
+compile if we prove that to be true.
+
+We can also do things like metaprogramming, since we know more about  
+the values which are passed in, we can compute fancy types for things  
+such as literals.
+
+**From what we have read from your blog you have learnt Coq and Agda. What can code monkeys like us learn from programming languages like Coq and Agda?**
+
+I know a tiny amount of Coq and Agda. They teach people what types are  
+capable of and how they can be used to interactively prove programs  
+correct. It’ll also show the potential of typed metaprogramming, for  
+example allowing the type of printf to depend upon the input string or  
+how it’s possible to write your own statically checked literal  
+strings.
+
+**Have you checked** [**LiquidHaskell**](http://goto.ucsd.edu/~rjhala/liquid/haskell/blog/about/)**? What do you think about and refinement types?**
+
+I think refinement types are interesting. It’s very exciting to just  
+be able to add on annotations to existing programs and let proof  
+searching do the rest but I’d prefer dependent types to be a research  
+area for a couple of reasons:
+
+1.  LiquidHaskell can do some dependent looking things but doesn’t have  
+    full pi-types so can’t do as much as real dependent types
+2.  We’re relying on an SMT solver to come up with a reasoning for why  
+    something is true, dependent types allow you to create and manipulate  
+    your own justifications — this might be solvable just via tooling,  
+    though
+
+**What other languages or technologies are you keeping an eye on that we should check?**
+
+-   **Morte** by Gabriel Gonzalez is a brilliant way of talking about  
+    distributable programs. I want to work on Morte to create a database  
+    of super-optimised code, where package management is about functions,  
+    not libraries. Morte has a pretty good introduction [here](https://hackage.haskell.org/package/morte-1.2.1/docs/Morte-Tutorial.html).
+-   Paul Chiusano’s [**Unison**](http://unisonweb.org/) is an attempt at removing the “list of  
+    characters” problem from programming. It’s also trying to create a  
+    better UX for functional programming.
+
+-   [Functional Programming](https://notamonadtutorial.com/tagged/functional-programming)
+-   [Programming](https://notamonadtutorial.com/tagged/programming)
+-   [JavaScript](https://notamonadtutorial.com/tagged/javascript)
 
