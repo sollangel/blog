@@ -34,6 +34,8 @@ Those three tenets are one of the primary reasons that Erlang can be a soft-real
 
 Another big win for the BEAM and its approach to leveraging Erlang’s Actor model is that it leverages low level, efficient, non-blocking asyncronous IO primitives from the operating system to do IO, but presents a comfortable blocking interface to the language layer. Developers using the platform can use a very human understandable synchronous IO primitives while gaining all the advantages of asyncronous IO. This too, is an impressive achievement. I just gave a talk on this topic for the Seattle Scalability Meetup:
 
+**[# Scalability Meetup @ Whitepages - Erlang VM](https://www.youtube.com/watch?v=PwWIN6vk62Q)**
+
 **Apart from the Erlang VM (BEAM), what do you think about Erlang as a language?**
 
 I think it’s not a bad language. It has the benefit of being both very declarative and very simple. That is a big win in distributed systems where complexity composes and quickly becomes unmanagable. I tend to prefer languages with an algebraic type system and a type inferencing and reasonable meta programming capabilities. Erlang has neither and that’s unfortunate. That said, I have implemented a large number of very reliable systems in Erlang and wouldn’t hesitate to do so again.
@@ -56,13 +58,10 @@ I think Elixir has brought a lot of people to the Erlang world that wouldn’t h
 
 I love lazyness in concept. I think the idea that computation only occurs when it’s needed is right in line with the trend that has been occurring in functional programming for many decades. The problem that I have with lazyness is more pragmatic. It is very easy to create space leaks and, as of this writing, good tools to detect and debug those space leaks don’t yet exist. That makes me very hesitant to use a language that is lazy by default in production. The Haskell guys are working hard to resolve this, and I think they will, but they haven’t yet.
 
-**Why do you like Hindley–Milner type system? [the type system used in the ML family (Standard ML, Caml, OCaml, F#) and Haskell]**
 
-![](https://miro.medium.com/max/60/1*TKFIhHLhfGTz5uMBn6NfkQ.png?q=20)
 
-![](https://miro.medium.com/max/284/1*TKFIhHLhfGTz5uMBn6NfkQ.png)
+    ...
 
-Image stolen from [http://learnyousomeerlang.com/](http://learnyousomeerlang.com/)
 
 Essentially, it’s because I am lazy. Much like resource management, contract management is a slow, manual painful process. By contract management, I mean verifying that the form of data a function recieves is the form of data that it expects. A Hindley-Milner style type system allows me to offload that tedious work to the compiler. Computers are essentially better at that kind of tedious work than humans.
 
