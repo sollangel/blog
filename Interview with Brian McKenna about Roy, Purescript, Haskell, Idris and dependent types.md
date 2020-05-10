@@ -20,3 +20,17 @@ functional programming:
 -   Algebraic data types and pattern matching
 -   Monadic syntax
 
+**Why did you create it?**
+
+I created Roy after doing years of JavaScript work. I learned Haskell  
+and it made a huge amount of sense to me. Functional programming with  
+types seemed like the ideal way for me to work on software and so I  
+wanted to bring it to web programming.
+
+**I am tempted to say that Roy has some big similarities with** [**Purescript**](http://www.purescript.org/)**. What are the main differences between the two languages?**
+
+Roy was first!
+
+PureScript had almost the exact same goals as Roy but had a much  
+better implementation. Quoting the PureScript wiki:
+
