@@ -36,3 +36,40 @@ better implementation. Quoting the PureScript wiki:
 
 >Roy is probably the most similar language on the list, and was a  
 >large influence on the development of PureScript.
+
+I stopped working on Roy once PureScript got around equal in  
+functionality. PureScript’s implementation means it’s a lot easier to  
+work on and has much fewer bugs.
+
+Originally the PureScript FFI started off being very different (i.e.  
+it used inline JS instead of an externs file) but recently changed to  
+being similar to the original design Roy had. That was probably the  
+biggest difference the projects had.
+
+**You implemented the lexer and the parser. Did you do so to learn/play or because you thought that the available tools were not good enough?**
+
+I implemented a whitespace sensitive lexer which was passed into the  
+Jison parser generator. It was the same approach which CoffeeScript  
+took.
+
+A custom lexer was necessary because the [Jison](https://medium.com/this-is-not-a-monad-tutorial/interview-with-brian-mckenna-about-roy-purescript-haskell-idris-and-dependent-types-63bb1289ea3d) lexer generator was not  
+capable of stateful scanning of whitespace.
+
+I prefer working with parser combinators such as Parsec and Trifecta.  
+They’re easier to work with and allow you to write reusable  
+abstractions.
+
+**Why did you use a whitespace sensitive grammar a la Python/Haskell in Roy?**
+
+Just to look like Haskell. I hate thinking about syntax — I copy  
+things as much as I can. I’m also annoyed that we’re still writing  
+programs using text. They’re trees, not lists of characters!
+
+**Why is it useful to have monadic sugar in a language that has unrestricted side effects?**
+
+Roy was not designed to allow side-effects, but you could do anything  
+with the FFI and so it was possible.
+
+Scala has (pretty limited) monadic sugar and also unrestricted  
+side-effects. People use monadic sugar for things as straight-forward  
+as Option:
