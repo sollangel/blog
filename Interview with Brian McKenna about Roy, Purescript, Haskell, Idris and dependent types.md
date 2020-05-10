@@ -79,3 +79,6 @@ as Option:
     user <- lookup(name)  
     avatar <- getAvatar(user)  
     } yield avatar
+
+Which can be easier to type than:
+
