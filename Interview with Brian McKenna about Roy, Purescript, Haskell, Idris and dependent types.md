@@ -88,7 +88,8 @@ Which can be easier to type than:
         }  
      }
 
-     It doesn’t have anything to do with side-effects.
+
+It doesn’t have anything to do with side-effects.
 
 **From what we could read in the Damas-Hindley-Milner type inference algorithm source comments it is based on Robert Smallshire’s Python code. Do you have any recommendation for those who want to implement it?**
 
