@@ -10,4 +10,13 @@ As promised in our [last interview](https://medium.com/this-is-not-a-monad-tutor
 In the following weeks we will be talking with the creators of [Red programming language](http://www.red-lang.org/), Robert Virding — Erlang co-inventor and [Lisp Flavored Erlang](http://lfe.io/) creator — and with [MirageOS unikernel](https://mirage.io/) dev team. Stay tuned! Reach me via twitter at [@unbalancedparen](https://twitter.com/unbalancedparen), if you have any comment or request.
 
 ![](https://miro.medium.com/max/500/1*vYf7TCGE19Gni5ssKXQaHA.png)
+
 **What are Roy’s main features?**
+
+Roy featured things common to languages which are well suited to typed  
+functional programming:
+
+-   Types and type inference (with row polymorphism)
+-   Algebraic data types and pattern matching
+-   Monadic syntax
+
