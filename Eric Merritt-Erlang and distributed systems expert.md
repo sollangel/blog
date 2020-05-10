@@ -58,7 +58,8 @@ I think Elixir has brought a lot of people to the Erlang world that wouldn’t h
 
 I love lazyness in concept. I think the idea that computation only occurs when it’s needed is right in line with the trend that has been occurring in functional programming for many decades. The problem that I have with lazyness is more pragmatic. It is very easy to create space leaks and, as of this writing, good tools to detect and debug those space leaks don’t yet exist. That makes me very hesitant to use a language that is lazy by default in production. The Haskell guys are working hard to resolve this, and I think they will, but they haven’t yet.
 
-    ...
+
+**Why do you like Hindley–Milner type system? [the type system used in the ML family (Standard ML, Caml, OCaml, F#) and Haskell]**
 
 ![](https://miro.medium.com/max/284/1*TKFIhHLhfGTz5uMBn6NfkQ.png)
 [Hey there! This is Learn You Some Erlang for great good!](https://learnyousomeerlang.com/).
