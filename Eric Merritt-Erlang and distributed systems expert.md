@@ -58,9 +58,9 @@ I think Elixir has brought a lot of people to the Erlang world that wouldn’t h
 
 I love lazyness in concept. I think the idea that computation only occurs when it’s needed is right in line with the trend that has been occurring in functional programming for many decades. The problem that I have with lazyness is more pragmatic. It is very easy to create space leaks and, as of this writing, good tools to detect and debug those space leaks don’t yet exist. That makes me very hesitant to use a language that is lazy by default in production. The Haskell guys are working hard to resolve this, and I think they will, but they haven’t yet.
 
-
-
     ...
+
+![](https://miro.medium.com/max/284/1*TKFIhHLhfGTz5uMBn6NfkQ.png)
 
 
 Essentially, it’s because I am lazy. Much like resource management, contract management is a slow, manual painful process. By contract management, I mean verifying that the form of data a function recieves is the form of data that it expects. A Hindley-Milner style type system allows me to offload that tedious work to the compiler. Computers are essentially better at that kind of tedious work than humans.
