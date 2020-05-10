@@ -127,6 +127,7 @@ like to implement one of those libraries in PureScript and try to
 write combinators to fill in the gaps for developing user interfaces  
 to see how close we get to current FRP libraries.
 
+**You recently gave a talk about** [**Idris**](http://www.idris-lang.org/)**, a language with** [**dependent types**](https://en.wikipedia.org/wiki/Dependent_type)**. Could you explain what are dependent types?**
 
 >**["Idris: Practical Dependent Types with Practical Examples" by Brian McKenna](https://www.youtube.com/watch?v=4i7KrG1Afbk&feature=youtu.be).**
 
