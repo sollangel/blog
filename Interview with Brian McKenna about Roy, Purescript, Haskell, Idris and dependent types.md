@@ -87,3 +87,43 @@ Which can be easier to type than:
            getAvatar(user)  
         }  
      }
+
+     It doesn’t have anything to do with side-effects.
+
+**From what we could read in the Damas-Hindley-Milner type inference algorithm source comments it is based on Robert Smallshire’s Python code. Do you have any recommendation for those who want to implement it?**
+
+I recommend reading “Generalizing Hindley-Milner Type Inference  
+Algorithms” which turns the algorithm into explicit separate  
+constraint collection and constraint solving problems, which is a bit  
+easier to work with than plain Algorithm W. It’s then possible to do  
+tree annotation via the cofree comonad, [which gives a pretty nice  
+implementation](http://brianmckenna.org/blog/type_annotation_cofree).
+
+**What reading material do you recommend for implementing your first programming language?**
+
+Source code of other languages are great resources. I think the  
+PureScript and Idris compilers are somewhat easy to play around with.
+
+Hackage has a lot of code to look at, such as reference  
+implementations of Algorithm W:
+
+[https://hackage.haskell.org/packages/](https://hackage.haskell.org/packages/)
+
+**What would you recommend us to read to learn about different type systems?**
+
+[Types and Programming Languages](https://www.cis.upenn.edu/~bcpierce/tapl/) by Benjamin Pierce is a brilliant  
+resource for understanding both. It’s surprised me by being a very  
+good introduction to types and having pretty good reference  
+implementations in OCaml for each of the discussed type-systems. Very  
+highly recommended.
+
+**Have you tried** [**Elm**](http://elm-lang.org/)**? What do you think of** [**FRP**](https://en.wikipedia.org/wiki/Functional_reactive_programming)**?**
+
+I think Functional Reactive Programming could be generalised a bit to  
+just general stream combinator libraries and we could make it as  
+simple as libraries such as pipes, machines and scalaz-stream. I’d  
+like to implement one of those libraries in PureScript and try to  
+write combinators to fill in the gaps for developing user interfaces  
+to see how close we get to current FRP libraries.
+
+**You recently gave a talk about** [**Idris**](http://www.idris-lang.org/)**, a language with** [**dependent types**](https://en.wikipedia.org/wiki/Dependent_type)**. Could you explain what are dependent types?**
