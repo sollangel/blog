@@ -14,3 +14,4 @@ In this case, [This is not a Monad tutorial](https://medium.com/this-is-not-a-mo
 In the following weeks we will be talking with Robert Virding — Erlang co-inventor and [Lisp Flavored Erlang](http://lfe.io/) creator — , [Brian McKenna](https://github.com/puffnfresh) —[Roy](https://github.com/puffnfresh/roy) language creator— and with [MirageOS unikernel](https://mirage.io/) dev team. Stay tuned!
 
 **In the Functional Geekery podcast you stated that the Erlang VM (BEAM) is brilliant. What did it get right that other VMs did not?**
+
