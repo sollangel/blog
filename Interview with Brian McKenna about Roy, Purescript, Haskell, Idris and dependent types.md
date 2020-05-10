@@ -73,3 +73,9 @@ with the FFI and so it was possible.
 Scala has (pretty limited) monadic sugar and also unrestricted  
 side-effects. People use monadic sugar for things as straight-forward  
 as Option:
+
+    for {  
+    name <- maybeFirstName  
+    user <- lookup(name)  
+    avatar <- getAvatar(user)  
+    } yield avatar
