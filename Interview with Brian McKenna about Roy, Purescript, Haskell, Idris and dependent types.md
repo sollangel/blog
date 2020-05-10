@@ -75,10 +75,15 @@ side-effects. People use monadic sugar for things as straight-forward
 as Option:
 
     for {  
-    name <- maybeFirstName  
-    user <- lookup(name)  
-    avatar <- getAvatar(user)  
+      name <- maybeFirstName  
+      user <- lookup(name)  
+      avatar <- getAvatar(user)  
     } yield avatar
 
 Which can be easier to type than:
 
+    maybeFirstName.flatMap { name =>  
+        lookup(name).flatMap { user =>  
+           getAvatar(user)  
+        }  
+     }
