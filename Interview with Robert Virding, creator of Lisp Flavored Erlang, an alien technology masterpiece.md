@@ -5,3 +5,5 @@
 As you might know zombies, skeletons and momies are good friends of aliens
 
 This time I interviewed [Robert Virding](https://twitter.com/rvirding), co-creator of Erlang and creator of [Lisp Flavored Erlang](http://lfe.io/) (LFE). I am an Erlang developer and Lisp fan — if you are learning Clojure check out my post [How to earn your Clojure white belt](https://medium.com/this-is-not-a-monad-tutorial/how-to-earn-your-clojure-white-belt-7e7db68a71e5#.dtmcog9gk) — so logically I am very excited about LFE.
+Reach me via twitter at [@unbalancedparen](http://twitter.com/unbalancedparen) if you have any comments or interview request for [This is not a Monad tutorial](https://medium.com/this-is-not-a-monad-tutorial/). **Stay tuned!**
+                                                . . .
