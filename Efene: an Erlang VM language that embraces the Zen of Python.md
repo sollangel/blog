@@ -150,7 +150,7 @@ _“<<-”_ adds the case clauses on the right as an anonymous function as first
 
 You can see it says “case clauses” and not “anonymous function”, this is because you don’t have to write the *fn* keyword, it gives this expression a DSL taste that I like, for example: 
 
- lists.map(Things) <<-  
+    lists.map(Things) <<-  
       case 0: zero  
       case A when A % 2 is 0: even  
       else odd  
