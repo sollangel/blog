@@ -95,11 +95,10 @@ The best thing is that these days there are hundreds of open source distributed 
 >##### I joined LinkedIn about six years ago at a particularly interesting time. We were just beginning to run up against the…
 >###### engineering.linkedin.com
 
-
+   . . .
 
 >[Putting Apache Kafka To Use: A Practical Guide to Building a Stream Data Platform (Part 1)](http://www.confluent.io/blog/stream-data-platform-1/)
 >##### These days you hear a lot about "stream processing", "event data", and "real-time", often related to technologies like…
->www.confluent.io![](https://cdn.confluent.io/wp-content/uploads/data-flow-ugly-1-1024x570.png) 
-
+>www.confluent.io
 
 
