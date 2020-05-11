@@ -84,3 +84,8 @@ Oh and I recommend that you read this email from Robert about LFE titled _“A b
 > *This gets us, finally, to the CL module. It is just a library containing many of the standard CL library functions which gives you the possibility of writing in a CL style. Not everything can be included, for example the nXXXX functions which mutate data, and some features don’t mesh well with Erlang/LFE. For example equating nil/() and predicates which in Erlang/LFE return true/false while in CL are truthy and return nil/() and anything else [**]. It is in no way a fundamental part of LFE and is just an add-on. If anyone feels inclined to do a similar module for clojure then I will definitely consider including it. Again it would just be an add-on. These could easily be included in the base release.*
 > 
 > *Packages like flavors, which I did because they are interesting and I think fun, should probably not be part of the base. This wou|d also apply to things like LFE CLOS (if anyone decided to do it) and LFE clojure-like protocols. They are interesting and useful in themselves but not things I would consider part of the LFE base. A set of these should probably kept in a standard place to make them easily accessible for everyone. I would like to keep the base relatively simple, clean and “basic”, a “lean, mean, fighting machine” if you will. It is all too easy to add things, even sensible and useful things, and end up with a bloated mess. I really want to avoid this, hence keeping the base simple and clean.*
+
+   . . .
+-   [Functional Programming](https://notamonadtutorial.com/tagged/functional-programming)
+-   [Erlang](https://notamonadtutorial.com/tagged/erlang)
+-   [Development](https://notamonadtutorial.com/tagged/development)
