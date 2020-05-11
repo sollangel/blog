@@ -21,5 +21,5 @@ After [my talk](http://www.erlang-factory.com/conference/London2010/speakers/Mar
 **Why do you embrace the** [**Zen of Python**](https://www.python.org/dev/peps/pep-0020/)**?**
 
 ![](https://miro.medium.com/max/560/1*6_ijRzr0oB6Zckr8GTrq4A.png?q=20)
-Zen of Python
+
 
