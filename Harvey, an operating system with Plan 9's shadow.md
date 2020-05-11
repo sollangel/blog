@@ -2,15 +2,8 @@
 
 # Harvey, an operating system with Plan 9's shadow
 
-[![unbalancedparentheses](https://miro.medium.com/fit/c/96/96/2*p2NbnNI4sEc75QvzOZ1gaA.jpeg)](https://notamonadtutorial.com/@federicocarrone?source=post_page-----3081414e5f0b----------------------)
-[unbalancedparentheses](https://notamonadtutorial.com/@federicocarrone?source=post_page-----3081414e5f0b----------------------)
-[Follow](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fnotamonadtutorial.com%2Fharvey-an-operating-system-with-plan-9-s-shadow-3081414e5f0b&source=-d257e779bd2c-------------------------follow_byline-)
-[Jul 24, 2015](https://notamonadtutorial.com/harvey-an-operating-system-with-plan-9-s-shadow-3081414e5f0b?source=post_page-----3081414e5f0b----------------------) · 10 min read
 
 [This is not a Monad tutorial](https://medium.com/this-is-not-a-monad-tutorial) interviewed Álvaro Jurado about the development of [Harvey OS](http://harvey-os.org/) ([code in github](https://github.com/Harvey-OS/harvey)). If you haven’t yet played around with Plan 9, this will make you want to do so. Be sure to check future posts because we will be keeping an eye on the development of Harvey OS, Plan 9 derivates and Plan 9 userland tools on other operating systems.
- 
- 
- ![](https://miro.medium.com/max/250/1*NSlnD5Bctnl5iG_Ae1mXCw.png)**What is Harvey OS?**  Harvey’s website states that its aim is to provide a modern, distributed, 64­bit operating system that extends the elegance of the original Unix model, in which all resources are represented as files and directories, to a networked environment, and allows for new ways of working.
 
 
 
