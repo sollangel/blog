@@ -61,3 +61,52 @@ Clojure is not Java, neither Common Lisp or Scheme. You should learn to write id
 >### About The Joy of Clojure
 >#### When this book was conceived, our first instinct was to create a comprehensive com- parison between Clojure and its…
 >##### www.joyofclojure.com
+
+
+It is also important to follow table manners or the [Clojure style guide](https://github.com/bbatsov/clojure-style-guide).
+
+If you have trouble like me grasping macros, then you should also check out [Mastering Clojure Macros](https://pragprog.com/book/cjclojure/mastering-clojure-macros).
+
+Oh, if you miss your type checking then now it is a good time that you read about [optional type system](http://typedclojure.org/) for Clojure.
+
+## Keep up to date
+
+-   [Planet Clojure](http://planet.clojure.in/)
+-   [Clojure Gazette](http://www.clojuregazette.com/)
+-   [Clojure Weekly](http://reborg.tumblr.com/)
+-   [Reddit](https://www.reddit.com/r/Clojure/)
+-   [ClojureTV](https://www.youtube.com/user/ClojureTV)
+
+## Know the full arsenal at your disposal
+
+-   [Clojure Toolbox](http://www.clojure-toolbox.com/)
+-   [Awesome Clojure](https://github.com/razum2um/awesome-clojure)
+
+## Get help
+
+-   [Google Group](https://groups.google.com/forum/#!forum/clojure)
+-   IRC: #clojure channel in Freenode server
+-   [Clojurians Slack](https://clojurians.slack.com/)
+
+## Introduction to Clojurescript
+
+Clojure on the frontend trench:
+
+1.  [Quickstart](https://github.com/clojure/clojurescript/wiki/Quick-Start)
+2.  [Differences from Clojure](https://github.com/clojure/clojurescript/wiki/Differences-from-Clojure)
+3.  [A series of tutorials on Clojurescript](https://github.com/magomimmo/modern-cljs)
+
+## Building your own Lisp
+
+Building a Lisp is similar to a road trip with friends and good music but with no particular destination. Make yourself comfortable and enjoy the ride!
+
+-   [Build your own Lisp](http://www.buildyourownlisp.com/)
+-   [Write Yourself a Scheme in 48 hours](https://en.wikibooks.org/wiki/Write_Yourself_a_Scheme_in_48_Hours)
+-   [(How to Write a (Lisp) Interpreter (in Python))](http://norvig.com/lispy.html)
+
+    ...
+#### Did you like it? You can [follow me on Twitter — @unbalancedparen](https://twitter.com/unbalancedparen)
+  ..
+-   [Programming](https://notamonadtutorial.com/tagged/programming)
+-   [Clojure](https://notamonadtutorial.com/tagged/clojure)
+   
