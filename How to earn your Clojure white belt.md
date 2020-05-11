@@ -12,3 +12,21 @@ That is why one of the best skills to get is being able to separate the wheat fr
 -   Batteries included: good core libraries and [transducers](https://www.youtube.com/watch?v=6mTbuzafcII) support
 -   Clojurescript: Clojure that targets JavaScript with great libraries such as [reagent](https://github.com/reagent-project/reagent), an interface to React.js that is really simple and useful. Check David Nolen’s talks called ClojureScript: [Lisp’s Revenge](https://youtu.be/MTawgp3SKy8) and [Introduction to ClojureScript](https://youtu.be/-I5ldi2aJTI)
 -   JVM’s power (available almost everyhwere, optimized garbage collector, JIT compilation, Java interoperability), but also some issues such as not being able to properly support tail call optimization and awful stacktraces. If you are a Java developer you should check part [I](https://www.youtube.com/watch?v=P76Vbsk_3J0) and [II](https://www.youtube.com/watch?v=hb3rurFxrZ8) from Rich Hickey’s Clojure for Java Programmers talk
+# Ready, steady, go!
+
+Install [Leiningen](http://leiningen.org/#install) and configure your editor of choice.
+
+-   Emacs with [Cider](https://github.com/clojure-emacs/cider) [Clojure mode](https://github.com/clojure-emacs/clojure-mode) and [Company mode](http://company-mode.github.io)
+-   Vim with [vim-fireplace](https://github.com/tpope/vim-fireplace), [im-sexp-mappings-for-regular-people](https://github.com/tpope/vim-sexp-mappings-for-regular-people), [vim-salve](https://github.com/tpope/vim-salve), [rainbow](https://github.com/luochen1990/rainbow)
+-   [Light Table](http://lighttable.com/)
+-   [Nightcode](https://sekao.net/nightcode/)
+-   Sublime with [paredit](https://github.com/odyssomay/paredit), [Lispindent](https://github.com/odyssomay/sublime-lispindent) and [SublimeREPL](https://www.google.com.ar/search?q=SublimeREPL)
+-   [Cursive](https://cursiveclojure.com/) (IntelliJ)
+-   [Counterclockwise](http://doc.ccw-ide.org/documentation.html#install-as-standalone-product) (Eclipse)
+
+## Good tools that deserve a mention
+
+-   Linter [Eastwood](https://github.com/jonase/eastwood)
+-   Idiomatic Clojure checker [kibit](https://github.com/jonase/kibit)
+-   Clojure formatter [cljfmt](https://github.com/weavejester/cljfmt)
+-   Check simple issues in your code [bikeshed](https://github.com/dakrone/lein-bikeshed)
