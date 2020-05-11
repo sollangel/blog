@@ -1,8 +1,7 @@
 # Interview with Nenad Rakocevic about Red, a Rebol inspired programming language
 
 [![unbalancedparentheses](https://miro.medium.com/fit/c/96/96/2*p2NbnNI4sEc75QvzOZ1gaA.jpeg)](https://notamonadtutorial.com/@federicocarrone?source=post_page-----681133e3fd1c----------------------)
->
-[unbalancedparentheses](https://notamonadtutorial.com/@federicocarrone?source=post_page-----681133e3fd1c----------------------)
+
 [Aug 28, 2015](https://notamonadtutorial.com/interview-with-nenad-rakocevic-about-red-a-rebol-inspired-programming-language-681133e3fd1c?source=post_page-----681133e3fd1c----------------------) · 9 min read
 
 
