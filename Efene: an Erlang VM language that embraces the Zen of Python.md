@@ -157,3 +157,41 @@ You can see it says “case clauses” and not “anonymous function”, this is
     end
 
 Going back to the restricted uses of the right-to-left arrows it’s because since code reads from left to right, putting something on the right that is just a value doesn’t help readability hence I decided not to support it.
+   **I just saw that you are creating a new language for the BEAM called interfix. What is it?**
+
+As I said above, efene is a language that doesn’t try to come up with anythingnew. This led me to avoid doing experiments on efene itself, but I still wanted to do those experiments somewhere else.
+
+With time the number of ideas for crazy languages I had grew and condensed to a point I thought I had a nice little language. Then coming back from a conference I had a lot of dead time on airports and no internet so I decided to give it a try.
+
+After I landed, the language was growing and all the ideas I had didn’t seem to have any problems so I kept growing it quite fast and for the last days it’s almost a complete language (in the sense that it can do everything Erlang can do).
+
+At this point I’m finishing adding the remaining features and when everything is there and I know everything fits I will move to cleaning the code and adding some tooling and docs around it for people that want to play with a more “experimental” language.
+
+I say experimental in the sense that it has some crazy ideas in it but not experimental in that it will crash, break backward compatibility or compile the code to wrong bytecode.
+
+**You wrote the** [**Little Riak Core Book**](https://marianoguerra.github.io/little-riak-core-book/) **and you gave a talk called F**[**rom 0 to a working distributed system with riak_core**](https://www.youtube.com/watch?v=eiVqDnA0k0U)**. Could you explain what riak core is and why it can be useful for those of us who implement distributed systems?**
+
+Riak Core is the foundation of Riak KV and other Basho projects, it’s the generic and reusable part of a “dynamo style” distributed system, it provides some abstractions and utilities to build multi-node, master-less distributed systems.
+
+In a Riak Core based application you build your system by implemented interfaces to handle the work your application does inside virtual nodes (vnodes) that live inside a ring of vnodes, the work is done by routing commands consistently to those vnodes by hashing a key that you specify.
+
+It also provides ways to run a command in more than one vnode and compare the results, grow or shrink the cluster without downtime, migrate vnodes between physical nodes, authentication/authorization and a metadata system to hold information about the cluster and your application in a distributed manner.
+
+This frees you from having to implement all this building blocks so you can focus on what actually makes your application different and building upon a tested and production ready foundation.
+
+**While reading your blog I could see that you have used Scala and Clojure apart from Erlang. What has been your experience with Scala and Clojure? What advantages and disadvantages did you find when comparing Scala, Clojure and Erlang?**
+
+The experience with the 3 programming languages has been really good, I’ve built similar systems with those programming languages (a kind of pub/sub system with persistence), the reason I moved this backend initially from Scala (lift+akka) to Clojure (immutant) was because the system handled lot of semi-structured data both from the frontend and the backend and I was using a lot of time putting that data into “rigid” types to serialize it to json again
+
+after some operations, and each time the shape of the data evolved on the frontend or the storage I had to go and change those types in a backward compatible manner and it was getting really tiring since the backend was really simple in what it actually did.
+
+So I decided to move to Clojure and it resulted in a huge reduction on code but after the code evolved I saw myself implementing this pub/sub like system by hand with low level tools like agents, atoms and promises copying the Erlang “patterns”, at this point some customers were asking about scalability and clustering, so I decided to do a prototype using riak_core and after some coding we tried at a new project and since we could improve it fast and it was working quite nice we decided to adopt it as our default backend.
+
+I’m still using scala for Spark jobs, I use clojure for internal tools and internal frontends with clojurescript but the backend now is Erlang.
+
+I just want to clarify that our backend is quite simple in what it does so moving between languages in the backend is not a big deal, the bulk of what we do is in our frontend code.
+
+  ...
+  -   [Programming](https://notamonadtutorial.com/tagged/programming)
+-   [Functional Programming](https://notamonadtutorial.com/tagged/functional-programming)
+-   [Erlang](https://notamonadtutorial.com/tagged/erlang)
