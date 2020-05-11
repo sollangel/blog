@@ -92,7 +92,7 @@ The best thing is that these days there are hundreds of open source distributed 
 
  As I mentioned in the introduction to the interview, I highly recomend that you read the following three links about Kafka, its design and uses:
 
->[The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
-> I joined LinkedIn about six years ago at a particularly interesting time. We were just beginning to run up against the…
-> engineering.linkedin.com
+>[ The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
+>##### I joined LinkedIn about six years ago at a particularly interesting time. We were just beginning to run up against the…
+>###### engineering.linkedin.com
 
