@@ -106,3 +106,24 @@ Functions:
         <case-clauses>  
         [else: <body>]  
     end
+You should see a pattern there, since the case keyword was already taken and it’s what Erlang use for what “match” does in efene I had to look for a new keyword.
+
+One thing I like about python is this concept of “executable pseudocode”, I like the fact that if you read Python code aloud it sounds like what it does, so I thought “what am I doing here”, “I’m matching and expression against cases”, in imperative it would be “match A [against] case B, case C, else … end” and that’s how I ended up with match.
+
+**Why did you introduce a _for_ expression?**
+
+The initial idea for efene was to be familiar for people coming from “algol-like” or “mainstream” languages, so they can focus on learning what’s interesting about Erlang which are the semantics and the abstractions and avoid learning a new syntax on the way to epiphany.
+
+Since list comprehensions aren’t available in many of those languages but “for” is, I decided to implement list comprehensions as a more familiar construct but in fact it does the same.
+
+**What is the arrow operator and why did you add it?**
+
+First a quick introduction for people unfamiliar with efene or the arrow operator.
+
+There’s this thing in Erlang where if you want to apply a sequence of operations to a list you have to create a new binding for each intermediate result:
+
+    MyList = create_list(),  
+    MyList1 = op1(MyList),  
+    MyList2 = op2(MyList1),  
+    MyList3 = op3(MyList2),  
+    MyList4 = op4(MyList3).
