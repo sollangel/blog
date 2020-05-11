@@ -21,5 +21,13 @@ After [my talk](http://www.erlang-factory.com/conference/London2010/speakers/Mar
 **Why do you embrace the** [**Zen of Python**](https://www.python.org/dev/peps/pep-0020/)**?**
 
 ![](https://miro.medium.com/max/560/1*6_ijRzr0oB6Zckr8GTrq4A.png?q=20)
+Zen of Python
 
+Python was the first language I enjoyed coding in before I coded in C, C++, ASM and Java, but just because it was what I knew or they provided something I needed. With Python it was the first time I said “I’m a Python programmer” and not “I’m a programmer”, also the Python Argentina community helped a lot witht hat.
+
+Python has this attitude of simplicity and community that I like and instead of coming up with an “ad hoc, informally-specified, bug-ridden, slow implementation of half of the python zen” I decided just to copy it.
+
+David Nolen summarized it well the other day:
+
+That’s why efene is a mixture of what I like about the languages, communities and philosophies of Python, Javascript and Erlang, don’t expect a lot of novelty in efene, just a remix of what’s there :).
 
