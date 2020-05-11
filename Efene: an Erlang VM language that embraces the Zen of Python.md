@@ -18,8 +18,5 @@ At that point the only other beam language other than Erlang was [Reia](http://r
 
 After [my talk](http://www.erlang-factory.com/conference/London2010/speakers/MarianoGuerra) and some initial excitement things got quiet. I just had got my Engineers degree and had a new job so development stopped for a while, then Elixir appeared and got much more attention, so I thought “OK, someone got it right, I will just stop pushing efene” and some years passed. But then looking into Elixir I saw that the Elixir ideas weren’t exactly the ideas of efene and I decided to rewrite it to try to fill the niche of “just a different syntax for Erlang, reuse as much as possible from the Erlang ecosystem, unified tooling and documentation as the core of the project”. The language has been complete for a while now. I’m just working on documentation, rebar3 plugins andwaiting for some of the surrounding tools to mature to avoid having to redo the documentation (mainly [rebar3](https://github.com/rebar/rebar3) and [cowboy 2](https://www.youtube.com/watch?v=YGuAXS0Cy_8)).
 
-**Why do you embrace the** [**Zen of Python**](https://www.python.org/dev/peps/pep-0020/)**?**
 
-![](https://miro.medium.com/max/560/1*6_ijRzr0oB6Zckr8GTrq4A.png?q=20)
-Zen of Python
 
