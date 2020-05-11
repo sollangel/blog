@@ -79,3 +79,22 @@ Another thesis I have to mention in passing is Simon Fowlers on monitoring commu
 All in all, these observations seem to suggest we need some more research work in the area to understand the full interplay between a language such a Idris, and a highly concurrent ecosystem such as the Erlang BEAM VM. It would seem Erlang is a more generic fabric on top of which we could _patch in_ restrictions which improves the quality of our systems through automatic fault removal. In any case, typing concurrent/distributed programming in a very general communication model such as Erlang seems to be very hard.
 
 We also need to explore messaging patterns in Erlang which are typeable in some type system. Usually such patterns have additional desirable structure embedded in them because the type system enforces rigidity. By researching in this area, one may hope to improve the understanding of why certain patterns are used, or not.
+
+[0] [http://lenary.co.uk/publications/dissertation/](http://lenary.co.uk/publications/dissertation/)
+
+[1] [http://simonjf.com/writing/msc-thesis.pdf](http://simonjf.com/writing/msc-thesis.pdf)
+
+**Since it is very common to use a pool of gen servers in Erlang: Wouldn’t it be a good idea for Erlang/OTP to have a default gen_pool implementation?**
+
+Erlangs tenet is “provide tools, not solutions”. That is, provide the tooling for building a pool, but don’t provide a pool. The reason has to do with the fact pools are not alike. Over the last 10 years I’ve come across perhaps 5 different pool implementations and the key observation is they are all _valid_ such implementations. How to hand out resources from the pool differ: some do round-robin proxying. Some queue requests and hand them out in FIFO order. Some uses LIFO order. Some are distributed Job-Idle Queue implementations, whereas some can only run on a single machine. Some provide automatic health checks and reconnections. Some block the caller when there is no work, others errors, and some queues the caller for a while, before erroring.
+
+The other observation is how such pools handle failure, reclaim stale resources, handle errors in the pool implementation itself etc. Again, it is not clear what _the_ implementation should be, and what would be the correct operation. It is mostly a function of context in which the pool is used.
+
+My experience is that this problem space requires either chaos monkeys, concuerror or QuickCheck+PULSE to remove faults, and it is hard to get entirely right. But such tools require a specification of “correct operation”, and there are several such specifications.
+
+Had Erlang/OTP provided a default gen_pool implementation, then people would use it even if it doesn’t fit their problem space. This tend to create subtle hard-to-find faults.
+
+...
+-   [Functional Programming](https://notamonadtutorial.com/tagged/functional-programming)
+-   [Erlang](https://notamonadtutorial.com/tagged/erlang)
+-   [Java](https://notamonadtutorial.com/tagged/java)
