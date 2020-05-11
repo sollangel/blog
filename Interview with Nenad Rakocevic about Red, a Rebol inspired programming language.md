@@ -27,3 +27,25 @@ In 2010, Rebol was closed source. I deeply felt that the approach had a lot more
 -   DSL-oriented environment: Red comes with many embedded DSL addressing important needs (like GUI or system-programming). DSL are a very powerful way to reduce complexity arising from frameworks or API, while drastically increasing productivity. Red includes a DSL (called Parse) for constructing DSLs.
 -   Red (like Rebol) is a Lisp derivative, but with a human-friendly syntax (no parenthesis hell). Red is its own data format. All code is treated as data until you evaluate it, code/data serialization comes for free. The minimal punctuation makes it easy on the eye.
 -   The underlying philosophy of Red (as was that of Rebol) is to make the simple easy and the difficult possible.
+**What made Rebol the main inspiration for Red?**
+
+Rebol is one of the most innovative programming language created in the last 20 years. Sadly, it remained under the radar being closed source at a time when open-source languages like Perl, Python and Ruby hit the streets. Rebol’s approach shakes the foundation of what programmers consider “simple” or “efficient” in programming. Typically, API which other languages would call “simple”, look uselessly complicated when you are used to wear Rebol glasses. ;-) Here are a few one-liners as examples (using the Rebol2 REPL):
+
+Create a GUI window with a button printing, on click, Hello in the console:
+
+    view layout [button “Click Me” [print “Hello”]]
+Dump the content of a web page in console:
+
+    print read [http://rebol.com](http://rebol.com/)
+ Extract the title of a web page:
+
+    parse read [http://rebol.com](http://rebol.com/) [thru <title> copy text to </title> (print text)]
+  Send the list of files in current folder by email:
+
+    send [user@domain.com](mailto:user@domain.com) mold read %.
+ 
+ Retrieve records from a MySQL database and print them in console:
+
+    foreach row read/custom mysql://root@localhost/books [“SELECT * FROM authors”] [print row]
+
+Notice that even if you never looked at Rebol code before, you can nonetheless read it and guess what most of the code is doing.
