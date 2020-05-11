@@ -57,3 +57,7 @@ Other two good tutorials worth mentioning are [Clojure from the ground up](https
 ## Idiomatic Clojure
 
 Clojure is not Java, neither Common Lisp or Scheme. You should learn to write idiomatic Clojure. The Joy of Clojure is your best friend to become a native Clojure speaker:
+[](http://www.joyofclojure.com/the-book/)
+>### About The Joy of Clojure
+>#### When this book was conceived, our first instinct was to create a comprehensive com- parison between Clojure and its…
+>##### www.joyofclojure.com
