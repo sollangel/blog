@@ -113,7 +113,8 @@ As I mentioned in the introduction to the interview, I highly recomend that you 
 
 >[Putting Apache Kafka to Use for Event Streams, Jay Kreps 20150323](https://www.youtube.com/watch?v=el-SqcZLZlI)
 
-### Did you like it?[Follow me on Twitter — @unbalancedparen](https://twitter.com/unbalancedparen)
+
+#### Did you like it?[Follow me on Twitter — @unbalancedparen](https://twitter.com/unbalancedparen)
    . . .
 -   [Development](https://notamonadtutorial.com/tagged/development)
 -   [Big Data](https://notamonadtutorial.com/tagged/big-data)
