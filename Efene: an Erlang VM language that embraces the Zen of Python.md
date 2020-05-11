@@ -148,4 +148,12 @@ _“<-”_ adds the case clauses on the right as an anonymous function as last a
 
 _“<<-”_ adds the case clauses on the right as an anonymous function as first argument on the function call on the left.
 
-You can see it says “case clauses” and not “anonymous function”, this is because you don’t have to write the *fn* keyword, it gives this expression a DSL taste that I like, for example:
+You can see it says “case clauses” and not “anonymous function”, this is because you don’t have to write the *fn* keyword, it gives this expression a DSL taste that I like, for example: 
+
+ lists.map(Things) <<-  
+      case 0: zero  
+      case A when A % 2 is 0: even  
+      else odd  
+    end
+
+Going back to the restricted uses of the right-to-left arrows it’s because since code reads from left to right, putting something on the right that is just a value doesn’t help readability hence I decided not to support it.
