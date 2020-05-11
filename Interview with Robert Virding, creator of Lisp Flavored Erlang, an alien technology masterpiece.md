@@ -74,7 +74,7 @@ So far the roadmap has been a little “I just want to add this one last feature
 
 Oh and I recommend that you read this email from Robert about LFE titled _“A bit of philosophy and some design principles”_:
 
-> *There was a bit of discussion on the IRC about the CL module and where LFE gets its impulses from, that it doesn’t try to stand on its feet. There are things in it from scheme and CL but most of it is based on Erlang and the features it provides and the type of systems you build using it.
+> *There was a bit of discussion on the IRC about the CL module and where LFE gets its impulses from, that it doesn’t try to stand on its feet. There are things in it from scheme and CL but most of it is based on Erlang and the features it provides and the type of systems you build using it*.
 > 
 > The base of LFE rests directly on what the underlying Erlang VM provides and this determines what LFE can do and how it works. It is based on language features like modules, pattern matching, immutable data and how functions work. This is what defines LFE. I don’t think that LFE tries as hard as Elixir to hide this background.
 > 
