@@ -49,3 +49,38 @@ One difficulty doing something like this in Erlang is that Erlang modules must b
 
 Flavors gets around this by compiling each component flavor separately and building a object flavor from all its mixin when the first instance is created. This allows us to create the components separately as long as all are done before their first time they are used. After that they cannot be modified.
 
+**Do you think adding something like** [**transducers**](https://stackoverflow.com/questions/26317325/can-someone-explain-clojure-transducers-to-me-in-simple-terms) **to LFE would be a good idea?**
+
+They probably would be, but they are not really the way I think. I find I tend to be very explicit in which data types I use; for me this is as fundamental as choosing which algorithm to use. This means that having polymorphic transformation functions becomes less interesting for me.
+
+I know that many people prefer working in this way and I see no problems in adding them to the set of standard LFE libraries. They just won’t be integrated into LFE at the lowest level. You will be able to choose.
+
+**I have seen some discussions about Dialyzer in LFE’s mailing list and there is a dialyzer branch in the** [**LFE repository**](https://github.com/rvirding/lfe/tree/dev-dialyzer)**. How well does LFE support** [**Dialyzer**](http://erlang.org/doc/man/dialyzer.html)**?**
+
+Supporting dialyzer is a little tricky as the official interface to dialyzer is very restricted: you either pass in erlang files, or you pass in beam files containing the Erlang AST of the code (compiling with the debug_info option). This does not work with LFE as the LFE compiler generates Core erlang, a language used internally in the compiler.
+
+However, by being a bit cunning I have generated some alternate dialyzer interface modules which can load in the Core erlang forms directly. It works but it is really only an experiment; a better solution would be to do a proper fix of the dialyzer interface but this is not that simple as the current interface is not very cleanly coded. It is actually quite ironic as dialyzer uses Core erlang internally.
+
+**What do you think about** [**Steel Bank Common Lisp Type system**](http://www.sbcl.org/manual/#Handling-of-Types)**,** [**Typed Racket**](https://docs.racket-lang.org/ts-guide/index.html) **or** [**Clojure’s core.typed**](https://github.com/clojure/core.typed) **and** [**Shen Types**](http://www.shenlanguage.org/learn-shen/types/types.html)**?**
+
+I have never tried these so I can’t say. Generally I am very dynamically typed. :-)
+
+**What is the roadmap for LFE v1.0?**
+
+So far the roadmap has been a little “I just want to add this one last feature and then I’ll release 1.0”. Anyway, my plan now is that when the new macro handling works and is properly integrated then the system will feel well rounded and I will release 1.0.
+
+#### Did you like it? [Follow me on Twitter — @unbalancedparen](https://twitter.com/unbalancedparen)
+
+Oh and I recommend that you read this email from Robert about LFE titled _“A bit of philosophy and some design principles”_:
+
+> There was a bit of discussion on the IRC about the CL module and where LFE gets its impulses from, that it doesn’t try to stand on its feet. There are things in it from scheme and CL but most of it is based on Erlang and the features it provides and the type of systems you build using it.
+> 
+> The base of LFE rests directly on what the underlying Erlang VM provides and this determines what LFE can do and how it works. It is based on language features like modules, pattern matching, immutable data and how functions work. This is what defines LFE. I don’t think that LFE tries as hard as Elixir to hide this background.
+> 
+> This, for example, is why LFE is a lisp-2 not a lisp-1 as it is a better fit for how Erlang handles functions. On top of this there is a set of convenience macros which were originally more scheme inspired but became more CL inspired when LFE became a lisp-2. They are just a better fit. Of course this doesn’t make LFE a scheme or a CL as there are many things in both scheme and CL which LFE can’t do because of the underlying Erlang VM like mutable data and the handling of nil/() and symbols with values, plists and function bindings [*].
+> 
+> An alternative would have been more inspired by clojure which shares some properties with Erlang. However they are fundamentally different in many ways so it would mainly have been using clojure’s naming conventions. Also clojure’s concurrency model is very different from Erlang/LFE so its way of building systems is also very different. You get the feeling, at least I do, that it is based on a central thread of execution where we you can run things in parallel, but there is this central thread. This is very un-Erlangy as Erlang/LFE systems typically don’t have a central thread.
+> 
+> This gets us, finally, to the CL module. It is just a library containing many of the standard CL library functions which gives you the possibility of writing in a CL style. Not everything can be included, for example the nXXXX functions which mutate data, and some features don’t mesh well with Erlang/LFE. For example equating nil/() and predicates which in Erlang/LFE return true/false while in CL are truthy and return nil/() and anything else [**]. It is in no way a fundamental part of LFE and is just an add-on. If anyone feels inclined to do a similar module for clojure then I will definitely consider including it. Again it would just be an add-on. These could easily be included in the base release.
+> 
+> Packages like flavors, which I did because they are interesting and I think fun, should probably not be part of the base. This wou|d also apply to things like LFE CLOS (if anyone decided to do it) and LFE clojure-like protocols. They are interesting and useful in themselves but not things I would consider part of the LFE base. A set of these should probably kept in a standard place to make them easily accessible for everyone. I would like to keep the base relatively simple, clean and “basic”, a “lean, mean, fighting machine” if you will. It is all too easy to add things, even sensible and useful things, and end up with a bloated mess. I really want to avoid this, hence keeping the base simple and clean.
