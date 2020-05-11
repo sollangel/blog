@@ -9,3 +9,7 @@ After our [last interview with Brian McKenna](https://medium.com/this-is-not-a-m
 ![](https://miro.medium.com/max/220/1*C0sMUPxpbBs40YIBX848jQ.jpeg?q=220)
 
 From my completely subjective point of view Red and Rebol are quite strange creatures! But don’t get me wrong, that doesn’t mean something bad. For example, I am not aware of many high-level languages which features an embedded DSL for general-purpose low-level programming or that have 50 native types. You should check it out, you might find some interesting ideas inside Red development.
+
+Reach me via twitter at @unbalancedparen if you have any comment or interview request for This is not a Monad tutorial. Stay tuned!
+
+Please tell us a little bit about Red’s inception. Why was it created?
