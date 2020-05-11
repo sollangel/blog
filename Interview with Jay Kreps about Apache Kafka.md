@@ -103,9 +103,9 @@ The best thing is that these days there are hundreds of open source distributed 
 
    . . .
 
-[Putting Apache Kafka To Use: A Practical Guide to Building a Stream Data Platform (Part 2)](http://www.confluent.io/blog/stream-data-platform-2/)
-##### This is the second part of our guide on streaming data and Apache Kafka. In part one I talked about the uses for real…
-###### www.confluent.io
+>[Putting Apache Kafka To Use: A Practical Guide to Building a Stream Data Platform (Part 2)](http://www.confluent.io/blog/stream-data-platform-2/)
+>##### This is the second part of our guide on streaming data and Apache Kafka. In part one I talked about the uses for real…
+>###### www.confluent.io
 
    . . .
    
