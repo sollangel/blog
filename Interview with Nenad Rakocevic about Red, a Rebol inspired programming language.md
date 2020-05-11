@@ -137,5 +137,5 @@ But the most useful way is to study several small languages implementation, that
 
 >
 
--   [Programming](https://notamonadtutorial.com/tagged/programming)
+*   [Programming](https://notamonadtutorial.com/tagged/programming)
 -   [Programming Languages](https://notamonadtutorial.com/tagged/programming-languages)
