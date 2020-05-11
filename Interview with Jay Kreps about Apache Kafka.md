@@ -101,4 +101,14 @@ The best thing is that these days there are hundreds of open source distributed 
 >##### These days you hear a lot about "stream processing", "event data", and "real-time", often related to technologies like…
 >www.confluent.io
 
+   . . .
 
+[Putting Apache Kafka To Use: A Practical Guide to Building a Stream Data Platform (Part 2)](http://www.confluent.io/blog/stream-data-platform-2/)
+##### This is the second part of our guide on streaming data and Apache Kafka. In part one I talked about the uses for real…
+###### www.confluent.io
+
+   . . .
+   
+>[Apache Kafka](https://kafka.apache.org/documentation.html#design)
+>##### Kafka is a distributed, partitioned, replicated commit log service. It provides the functionality of a messaging system…
+>###### kafka.apache.org
