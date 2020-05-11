@@ -99,7 +99,7 @@ I like very much Go. In fact, Harvey fast build tool is written in Go. And our t
 **The** [**Acme**](http://acme.cat-v.org/) **editor was originally developed by Rob Pike for Plan 9. It is an editor which encourages to use the mouse a lot. I am an Emacs and Vim user and it has been interesting for me to find that there are quite a few really experienced developers that use Acme on their daily basis. Are you using it to develop Harvey? Do you think we should give it a try?**
 
 
-![](https://miro.medium.com/max/1130/1*DNHGzoUAazEMZpRRzkLqrA.png?q=20)
+![](https://miro.medium.com/max/430/1*DNHGzoUAazEMZpRRzkLqrA.png)
 
 Which editor a person uses is as personal a decision as what kind of car they like, or what their favorite music is. Well, I think is a matter of taste. And all programmers have their own taste. Personally I used what I like or need at any moment. But yes, I used many times Acme, usually from inside a Plan 9 system or sometimes from plan9port. I really don’t know who is using what in Harvey’s core team, but everybody should give a try to Acme. Sometimes I saw myself trying to edit a menu bar in a GTK window, so definitively Acme can hook up you. At the same time, we intend to allow users to be able to run whatever the way. Emacs and vi should be working soon.
 
