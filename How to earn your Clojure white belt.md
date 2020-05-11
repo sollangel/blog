@@ -30,3 +30,30 @@ Install [Leiningen](http://leiningen.org/#install) and configure your editor of 
 -   Idiomatic Clojure checker [kibit](https://github.com/jonase/kibit)
 -   Clojure formatter [cljfmt](https://github.com/weavejester/cljfmt)
 -   Check simple issues in your code [bikeshed](https://github.com/dakrone/lein-bikeshed)
+
+# Love at first sight
+
+First of all get an idea of Clojure syntax and semantics:
+
+1.  [Learn X in Y minutes where X=clojure](http://learnxinyminutes.com/docs/clojure/)
+2.  [Clojure by example](https://kimh.github.io/clojure-by-example/)
+3.  [How I start Clojure](http://howistart.org/posts/clojure/1/)
+4.  [Listen to Software Engineering Radio’s interview with Rich Hickey](http://www.se-radio.net/2010/03/episode-158-rich-hickey-on-clojure/)
+
+If you do not understand something move on. At this stage the only objective is to grasp some basic ideas about Clojure.
+
+## Practice plus reading equals perfection
+
+1.  First practice with the [Koans](http://clojurekoans.com/)
+2.  Then read [Clojure for the Brave and True](http://www.braveclojure.com/), a simple and short book. If you prefer to watch videos, you can buy the course [Introduction to Clojure](http://www.purelyfunctional.tv/intro-to-clojure) from PurelyFunctionalTV.
+3.  Practice again with [4clojure problems](https://www.4clojure.com/)
+4.  Follow the road to perfection with [Clojure exercism](http://exercism.io/languages/clojure)
+5.  Finish the practice with [Wanderland Clojure Katas](https://github.com/gigasquid/wonderland-clojure-katas)
+
+It is always a good idea to have the [cheatsheet](http://clojure.org/api/cheatsheet) at hand.
+
+Other two good tutorials worth mentioning are [Clojure from the ground up](https://aphyr.com/tags/Clojure-from-the-ground-up) and [Hitchhiker’s Guide to Clojure](http://hitchhikersclojure.com/).
+
+## Idiomatic Clojure
+
+Clojure is not Java, neither Common Lisp or Scheme. You should learn to write idiomatic Clojure. The Joy of Clojure is your best friend to become a native Clojure speaker:
