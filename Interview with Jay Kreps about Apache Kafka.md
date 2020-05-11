@@ -112,3 +112,9 @@ The best thing is that these days there are hundreds of open source distributed 
 >[Apache Kafka](https://kafka.apache.org/documentation.html#design)
 >##### Kafka is a distributed, partitioned, replicated commit log service. It provides the functionality of a messaging system…
 >###### kafka.apache.org
+
+Jay also gave a few excellent talks about Kafka that explain why it was created and what are its uses:
+
+>[Apache Kafka and the Next 700 Stream Processing Systems" by Jay Kreps](https://www.youtube.com/watch?v=9RMOc0SwRro)
+
+>[Putting Apache Kafka to Use for Event Streams, Jay Kreps 20150323](https://www.youtube.com/watch?v=el-SqcZLZlI)
