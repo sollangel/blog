@@ -127,3 +127,25 @@ There’s this thing in Erlang where if you want to apply a sequence of operatio
     MyList2 = op2(MyList1),  
     MyList3 = op3(MyList2),  
     MyList4 = op4(MyList3).
+Then if you want to reorder or remove some of the operations you have to rearrange the names to fit.
+
+The idea of the arrow operator is to help with that, it’s a compile operation, this means that if you write:
+
+    MyList = create_list() -> op1() -> op2() -> op3() -> op4()
+It will compile to:
+
+    MyList = op4(op3(op2(op1(create_list))))
+The thing is that the Erlang libraries don’t have a standard position for the thing you are operating on like in other languages where it tends to be the first argument, inspired by Clojure ([http://clojuredocs.org/clojure.core/-%3E](http://clojuredocs.org/clojure.core/-%3E) and [http://clojuredocs.org/clojure.core/-%3E%3E](http://clojuredocs.org/clojure.core/-%3E%3E))  
+I created two variants:
+
+_“->”_ adds the result of evaluating the expression on the left as first argument on the function call on the right
+
+_“->>”_ adds the result of evaluating the expression on the left as last argument on the function call on the right
+
+But thinking about symmetry and other common idiom in Erlang and other functional languages which is higher order functions (passing functions as arguments to other functions) I decided to create the reverse of those but with a more restricted use.
+
+_“<-”_ adds the case clauses on the right as an anonymous function as last argument on the function call on the left.
+
+_“<<-”_ adds the case clauses on the right as an anonymous function as first argument on the function call on the left.
+
+You can see it says “case clauses” and not “anonymous function”, this is because you don’t have to write the *fn* keyword, it gives this expression a DSL taste that I like, for example:
