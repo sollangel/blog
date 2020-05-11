@@ -195,7 +195,9 @@ area for a couple of reasons:
     characters” problem from programming. It’s also trying to create a  
     better UX for functional programming.
 
-
+    .. 
+    
+    
 -   [Functional Programming](https://notamonadtutorial.com/tagged/functional-programming)
 -   [Programming](https://notamonadtutorial.com/tagged/programming)
 -   [JavaScript](https://notamonadtutorial.com/tagged/javascript)
