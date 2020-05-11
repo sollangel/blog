@@ -32,7 +32,46 @@ David Nolen summarized it well the other day:
 That’s why efene is a mixture of what I like about the languages, communities and philosophies of Python, Javascript and Erlang, don’t expect a lot of novelty in efene, just a remix of what’s there :).
 
 [](https://github.com/marianoguerra/ioriofn/)
->   ## marianoguerra/ioriofn
->#### ioriofn - ioriodb client and tests in efene
->##### github.com
+>   #### marianoguerra/ioriofn
+>###### ioriofn - ioriodb client and tests in efene
+>###### github.com
+
+If your reaction is “I understand this and this is boring”, then I would be happy :), of course knowing some Erlang will help the understanding since efene semantics and patterns are the same as Erlang’s.
+
+**Which are the biggest advantages of coding in a language that runs on top of the Erlang VM (BEAM)?**
+
+The semantics of the VM are really thought out and really simple to learn.
+
+The stability and scalability of the platform is great and there’s a lot of people that have worked on really hard problems for a long time on top of the Erlang VM, this means you can get really good advice and help from them.
+
+One thing I really like and I don’t think is mentioned that much is the level of runtime introspection and visibility the VM has, and the tooling that is build and can be built around it is great.
+
+**What difficulties did you find in implementing efene?**
+
+Learning the limits of the parser and what syntax is valid an unambiguous, learning to avoid introducing crazy ideas into the language because syntax and semantics are always tricky and you don’t want to have a “WAT” language.
+
+Also learning about Erlang and its VM while doing it.
+
+But to sum it up, it ended up not being as difficult as I thought it will be, it just requires persistence and some hammock-driven development ;)
+
+**Do you have any recommendation for those of us that did not implemented any language yet?**
+
+Learn about lexing and parsing, then build a calculator using S-Expressions (Lisp-like) or reverse-polish syntax (Forth-like).
+
+Start it as an interpreter, copy the semantics from a simple language you already know, coming up with good semantics is hard, don’t try to invent them the first time.
+
+Then ride on top of a language you know, either transpile to that language or compile to bytecode or some intermediate representation.
+
+Try to reuse as much of the tooling from the other language as possible ([AST from Erlang](http://www.erlang.org/doc/apps/erts/absform.html), [AST from Python](https://docs.python.org/3/library/ast.html) or similar), this will allow you to reuse all the tooling and code built around those representations.
+
+Read about Lisps and Forth. Implement a simple Lisp (Scheme) or Forth.
+
+Once you learn to lex and parse you can think syntax for languages and try to parse them.
+
+**What is the match expression and why did you introduce it?**
+
+At the core of efene rewrite was the concept of “Everything revolves around 4 main things, pattern matching, functions, guards and data”, pattern matching is done when using the equal sign (=), on the argument list of a function definition and on other Erlang expressions. I wanted to unify the pattern matching under a single syntax and reuse it everywhere, that’s where the “case clauses” came to be.
+
+If you haven’t look at efene yet, the shape of efene expressions is something like:
+
 
