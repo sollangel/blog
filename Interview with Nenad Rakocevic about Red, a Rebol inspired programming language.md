@@ -135,7 +135,8 @@ But the most useful way is to study several small languages implementation, that
 -   Webassembly: the foundation for the future of web programming.
 -   MagicLeap: the future of HCI!
 
->
-
-*   [Programming](https://notamonadtutorial.com/tagged/programming)
+> 
+> 
+> 
+-   [Programming](https://notamonadtutorial.com/tagged/programming)
 -   [Programming Languages](https://notamonadtutorial.com/tagged/programming-languages)
