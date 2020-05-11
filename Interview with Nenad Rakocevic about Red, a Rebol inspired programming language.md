@@ -16,3 +16,14 @@ Please tell us a little bit about Red’s inception. Why was it created?
 
 ![](https://miro.medium.com/max/130/1*869fRKUVs2sTdVDYrqblMQ.png)
 I started programming micro-computers, an Amiga in my case, in my teens. I have now been programming for more than 30 years. After my early experiences, I was unhappy with existing programming languages and tools. This was mostly because I found them not productive or friendly enough for my taste. So, when I stumbled across the Rebol language, in 1999, it was an eye-opener on what was wrong with so called “modern” computing practice. (Nowadays it’s even worse). Fighting complexity on all software fronts became the logical course of action.
+In 2010, Rebol was closed source. I deeply felt that the approach had a lot more to offer but Rebol was barely evolving. This was the trigger for me to start work on an open source relative to Rebol with much higher ambitions and a broader field of usage.
+
+**What are the main selling points of Red?**
+
+-   First fullstack programming solution: combines in one tool, the ability to write high-level code (GUI apps, scripting and DSL) and fast low-level code (writing device drivers, operating systems, native interfacing, etc). Moreover, Red is also a _both-sided_ technology (client & server).
+-   Cross-platform native code compiler: from any platform the toolchain runs on, you can compile to about 15 other platforms, with a simple command-line option (-t Windows, -t Linux, -t Darwin, -t RPi, …).
+-   Extremely lightweight: Red is a 1MB, single-file, no install, no setup, toolchain. It takes typically a few seconds to download and you can immediatly start writing and running code, there’s *nothing* to setup (it’s just terrible that this is the exception instead of being the norm…).
+-   Batteries-included solution: it comes with a very rich runtime library, despite its tiny size, covering pretty much anything you need for common tasks.
+-   DSL-oriented environment: Red comes with many embedded DSL addressing important needs (like GUI or system-programming). DSL are a very powerful way to reduce complexity arising from frameworks or API, while drastically increasing productivity. Red includes a DSL (called Parse) for constructing DSLs.
+-   Red (like Rebol) is a Lisp derivative, but with a human-friendly syntax (no parenthesis hell). Red is its own data format. All code is treated as data until you evaluate it, code/data serialization comes for free. The minimal punctuation makes it easy on the eye.
+-   The underlying philosophy of Red (as was that of Rebol) is to make the simple easy and the difficult possible.
