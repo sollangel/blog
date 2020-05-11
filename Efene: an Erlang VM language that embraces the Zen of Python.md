@@ -74,4 +74,35 @@ At the core of efene rewrite was the concept of “Everything revolves around 4 
 
 If you haven’t look at efene yet, the shape of efene expressions is something like:
 
+    <keyword> [<expr-args>]  
+        <case-clauses>  
+        [else: <body>]  
+    end
 
+A case-clause has this shape:
+
+    case <case-args> [when <guards>]: <body>
+
+For example try/catch:
+
+    try  
+       <body>  
+    catch  
+       <case-clauses>  
+       [else: <body>]  
+    [after <body>]  
+    end
+  Receive:
+
+    receive  
+         <case-clauses>  
+         [else: <body>]  
+    [after <after-expr>: <body>]  
+    end
+
+Functions:
+
+    fn [<name>]  
+        <case-clauses>  
+        [else: <body>]  
+    end
