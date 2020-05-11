@@ -89,32 +89,32 @@ A good textbook you _can_ buy today is [Introduction to Reliable and Secure Dist
 The best thing is that these days there are hundreds of open source distributed systems available and you can learn quite a lot about the design and implementation of these.
 
                                                 . . .
- As I mentioned in the introduction to the interview, I highly recomend that you read the following three links about Kafka, its design and uses:
+As I mentioned in the introduction to the interview, I highly recomend that you read the following three links about Kafka, its design and uses:
 
 >[ The Log: What every software engineer should know about real-time data's unifying abstraction](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying)
 >##### I joined LinkedIn about six years ago at a particularly interesting time. We were just beginning to run up against the…
 >###### engineering.linkedin.com
-
-   . . .
-
+   .  .  .
 >[Putting Apache Kafka To Use: A Practical Guide to Building a Stream Data Platform (Part 1)](http://www.confluent.io/blog/stream-data-platform-1/)
 >##### These days you hear a lot about "stream processing", "event data", and "real-time", often related to technologies like…
 >www.confluent.io
-
-   . . .
-
+   .  .  .
 >[Putting Apache Kafka To Use: A Practical Guide to Building a Stream Data Platform (Part 2)](http://www.confluent.io/blog/stream-data-platform-2/)
 >##### This is the second part of our guide on streaming data and Apache Kafka. In part one I talked about the uses for real…
 >###### www.confluent.io
-
-   . . .
-   
->[Apache Kafka](https://kafka.apache.org/documentation.html#design)
+   .  .  .
+   >[Apache Kafka](https://kafka.apache.org/documentation.html#design)
 >##### Kafka is a distributed, partitioned, replicated commit log service. It provides the functionality of a messaging system…
 >###### kafka.apache.org
 
-Jay also gave a few excellent talks about Kafka that explain why it was created and what are its uses:
+#### Jay also gave a few excellent talks about Kafka that explain why it was created and what are its uses:
 
 >[Apache Kafka and the Next 700 Stream Processing Systems" by Jay Kreps](https://www.youtube.com/watch?v=9RMOc0SwRro)
 
 >[Putting Apache Kafka to Use for Event Streams, Jay Kreps 20150323](https://www.youtube.com/watch?v=el-SqcZLZlI)
+
+### Did you like it?[Follow me on Twitter — @unbalancedparen](https://twitter.com/unbalancedparen)
+   . . .
+-   [Development](https://notamonadtutorial.com/tagged/development)
+-   [Big Data](https://notamonadtutorial.com/tagged/big-data)
+-   [Analytics](https://notamonadtutorial.com/tagged/analytics)
