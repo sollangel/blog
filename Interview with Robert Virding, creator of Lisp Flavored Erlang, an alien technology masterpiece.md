@@ -24,3 +24,28 @@ I would like to but there are some deep problems trying to do that. Basically yo
 [**Common Lisp macros and functions**](https://github.com/rvirding/lfe/blob/dev-macro/src/cl.lfe) **have been added to** [**LFE**](https://github.com/rvirding/lfe/blob/dev-macro/src/cl.lfe)**.** [**Clojure macros and functions**](https://github.com/lfex/clj/issues/18) **are also available as a separate library. LFE follows more traditional LISPs like Common Lisp, Scheme or more modern Lisps like Clojure?**
 
 LFE more has the feel of CL and Scheme, especially CL as it is a lisp-2 not a lisp-1 like Scheme. Clojure is definitely interesting but I felt that the way it does concurrency doesn’t really map well onto Erlang and the style of building systems feels different. `Clojure feels more like language with concurrency while Erlang feels more like a operating system with a language.`
+
+**What is** [**LFE Flavors**](https://github.com/rvirding/flavors) **and the** [**LFE Object System**](https://github.com/oubiwann/los)**? Aren’t they pretty similar?**
+
+Flavors is an object system on the Lisp Machine. I did LFE Flavors out of pure fun and curiosity. A long time ago (about 30 yrs) I did an implementation of Flavors for another lisp system, Portable Standard Lisp, and I was curious to see what it would be like to do one for LFE. It worked quite well for the central parts but there is a lot of Lisp machine specifics which can’t be transferred. CLOS is based on Flavors and you can see the heritage.
+
+My plan with LFE Flavors is not to bake it in as part of LFE but have it as a supported compatible plugin. I like to keep the core simple. I also have plans to implements more general structs which will allow more control over data structures and access to them. It would subsume records and elixir structs amongst other things.
+
+**A few months ago you** [**sent an email**](https://groups.google.com/d/topic/lisp-flavoured-erlang/l_Te7ZHkm9M/discussion) **titled “New macro handling and compiled macros”. How does the macro system work in LFE, what are you changing and why?**
+
+Currently macros work by defining them locally in each file where they are used. If you need to share macros then you define them in include files. The new macro handling will allow macros to be exported from modules in much the same way as functions and you would call them in the same way. So for a module foo you call functions with (foo:function …) and macros with (foo:macro …) making the interface much more consistent generic. Most uses of include files will disappear.
+
+**What do you think about Elixir?**
+
+Ambivalent! I don’t speak Ruby at all, so much of the syntax feels very strange and foreign. It also manages to push some of my programming buttons, for example having multiple ways of representing the same thing and adding syntax for special cases; both which I feel are just wrong. I am jealous of their ability to clean up some of the OTP modules by writing their own interfaces and having a way to avoid overlapping module names. I wonder about some of the complexity but that is just because I have a thing about simplicity.
+
+**Have you incorporated any idea from it into LFE?**
+
+I have not taken any ideas directly from Elixir though we do share some features, for example having multiple modules in one file (which I am not sure I like but it can be practical).
+
+**I have seen** [**multimethods**](http://blog.lfe.io/design/2015/07/11/1720-towards-multi-methods-in-lfe/) **and** [**protocols**](https://github.com/lfex/los/issues/8) **mentioned a few times by the LFE community. What do you think about Clojure multimethods and protocols?**
+
+One difficulty doing something like this in Erlang is that Erlang modules must be compiled as one unit, it is impossible to add, or remove, functions afterwards without recompiling the whole module. This makes it very difficult to have methods which are to be in one module in different places. Which lessens the usefulness of multimethods. IMAO.
+
+Flavors gets around this by compiling each component flavor separately and building a object flavor from all its mixin when the first instance is created. This allows us to create the components separately as long as all are done before their first time they are used. After that they cannot be modified.
+
