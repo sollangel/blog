@@ -13,3 +13,6 @@ From my completely subjective point of view Red and Rebol are quite strange crea
 Reach me via twitter at @unbalancedparen if you have any comment or interview request for This is not a Monad tutorial. Stay tuned!
 
 Please tell us a little bit about Red’s inception. Why was it created?
+
+![](https://miro.medium.com/max/130/1*869fRKUVs2sTdVDYrqblMQ.png)
+I started programming micro-computers, an Amiga in my case, in my teens. I have now been programming for more than 30 years. After my early experiences, I was unhappy with existing programming languages and tools. This was mostly because I found them not productive or friendly enough for my taste. So, when I stumbled across the Rebol language, in 1999, it was an eye-opener on what was wrong with so called “modern” computing practice. (Nowadays it’s even worse). Fighting complexity on all software fronts became the logical course of action.
