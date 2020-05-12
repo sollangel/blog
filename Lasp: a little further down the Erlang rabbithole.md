@@ -77,8 +77,12 @@ The course is also taught via a MOOC on edX as well, and I’ll be doing
 a guest lecture this semester in Part 2 on Lasp and CRDTs.
 
 | [Reliable Distributed Algorithms, Part 1](https://www.edx.org/course/reliable-distributed-algorithms-part-1-kthx-id2203-1x)
-###### This course gives a comprehensive introduction to the theory and practice of distributed algorithms for designing…
-###### www.edx.org | [Reliable Distributed Algorithms, Part 1 | KTHx on edX | Course About Video](https://www.youtube.com/watch?time_continue=8&v=HRslgnaIrPU&feature=emb_title) |
+###### This course gives a comprehensive introduction
+to the theory and practice of 
+distributed algorithms for designing…
+###### www.edx.org | [Reliable Distributed Algorithms, Part 1
+KTHx on edX 
+Course About Video](https://www.youtube.com/watch?time_continue=8&v=HRslgnaIrPU&feature=emb_title) |
 |--|--|
 
 
