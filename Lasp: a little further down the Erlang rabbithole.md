@@ -83,6 +83,7 @@ a guest lecture this semester in Part 2 on Lasp and CRDTs.
 |--|--|
 
 [No rights reserved by the author](http://creativecommons.org/publicdomain/zero/1.0/)
+
    . . .
 -   [Erlang](https://notamonadtutorial.com/tagged/erlang)
 -   [Programming](https://notamonadtutorial.com/tagged/programming)
