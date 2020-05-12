@@ -39,4 +39,46 @@ In MLFE a receive block types as a _receiver_. Receivers are polymorphic with tw
      0 -> :zero  
      | x, is_integer x -> :not_zero
      
-  
+All of the above patterns are clearly integers and all of the result portions are atoms so the type (internally) in MLFE would be `{t_receiver, t_int, t_atom}`. As an aside we can of course use union types if we want more complex messages.
+
+Unifying receivers with enclosing expressions makes _those_ expressions receivers too so if we’re assigning a variable in a let expression, the whole thing becomes a receiver e.g.
+
+    let my_msg = receive with  
+     0 -> :zero  
+     | x, is_integer x -> :not_zero   
+    in [my_msg, :in_a_list, :why_not]
+
+The above let expression is a _{t_receiver, t_int, {t_list, t_atom}}._ If we wrapped that in a function, the whole function is a receiver:
+
+    foo () = let my_msg = receive with   
+     0 -> :zero  
+     | x, is_integer x -> :not_zero   
+    in [my_msg, :in_a_list, :why_not]
+
+The type of the above is:
+
+    {t_receiver, t_int, {t_arrow, [t_unit], {t_list, t_atom}}}
+    
+That is a function from unit to a list of atoms that internally receives integer messages.
+
+Now when we spawn a process, _spawn_ uses the receiver’s first parameter to constrain the resulting PID to a specific type. If we spawn a function that’s a receiver of integers (resulting in a _{t_pid, t_int}_), all messages sent must be able to unify with _t_int_ so if we try to send it a float or a string we get a type error at compile time.
+
+If we spawn a function that is _not_ a receiver, we get a _{t_pid, undefined}_. Since _undefined_ will not unify with any other type, it’s a type error to send that particular process any messages at all.
+
+**One of the biggest issues I have with Erlang is that in some cases it is necessary to write code that has a lot of nested cases. Elixir added the** [**with**](http://learningelixir.joekain.com/learning-elixir-with/) **special form to deal with this issue. Rust 1.3 added a new** [**? operator**](https://blog.rust-lang.org/2016/11/10/Rust-1.13.html#the--operator) **that provides syntax sugar that helps to deal with this issue. The RabbitMQ team created** [**Erlando**](https://www.rabbitmq.com/blog/2011/05/17/can-you-hear-the-drums-erlando/) **using Erlang’s parse transform (Erlang like macros) that adds syntax extensions to Erlang, with the** [**do syntax**](https://github.com/rabbitmq/erlando#user-content-lots-of-different-types-of-monads) **for monads being the most important one to solve somehow this issue. From what I have seen the mlfe_type.erl of MLFE also** [**has this issue**](https://github.com/j14159/mlfe/blob/master/src/mlfe_typer.erl#L403-L427)**.**
+
+**Do you plan on adding some construct or syntactic sugar to deal with this type of issue?**
+
+This is certainly a common issue within MLFE’s typer itself. I don’t currently have plans to add any specific error handling sugar since I worry that doing so might push people away from OTP and supervision hierarchies. Having said that, I don’t think it’s at all unreasonable to have a simple error type and handling alternatives in a library. While try/catch don’t exist yet in MLFE it could look like something as simple as the following:
+     ....
+     module simple_try
+    export try_f/1, try_map/2
+    type t ‘result ‘error = Ok ‘result | Error ‘error
+    -- try to run f, wrapping successes in Ok and failures in    Error:  
+    try_f f = try  
+     Ok (f ())  
+    catch   
+     err -> Error err-- If t is a success apply the function f to    it or maintain a failed result:  
+    try_map t f = match t with  
+    Ok result -> let runner () = f result in try_f runner  
+    | Error e -> t
