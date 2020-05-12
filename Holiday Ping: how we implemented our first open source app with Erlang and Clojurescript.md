@@ -151,7 +151,7 @@ This is one of the things that we debated but didn’t get to a definite answer.
 
    . . .
 
-    API
-    Erlang
-    Clojure
-    Postgresql
+-   [API](https://notamonadtutorial.com/tagged/api)
+-   [Erlang](https://notamonadtutorial.com/tagged/erlang)
+-   [Clojure](https://notamonadtutorial.com/tagged/clojure)
+-   [Postgresql](https://notamonadtutorial.com/tagged/postgresql)
