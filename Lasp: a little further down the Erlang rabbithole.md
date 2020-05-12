@@ -81,3 +81,8 @@ a guest lecture this semester in Part 2 on Lasp and CRDTs.
 
 | [Reliable Distributed Algorithms, Part 2](https://www.edx.org/course/reliable-distributed-algorithms-part-2-kthx-id2203-2x)     *The course will help students gain an in-depth understanding of distributed algorithms to build reliable and scalable…* www.edx.org|  ![Reliable Distributed Algorithms, Part 2](https://prod-discovery.edx-cdn.org/media/course/image/cd705851-5162-4dd1-a4a4-1ada1f58f559-e5cf203aae47.small.jpg)|
 |--|--|
+
+[No rights reserved by the author](http://creativecommons.org/publicdomain/zero/1.0/)
+   . . .
+-   [Erlang](https://notamonadtutorial.com/tagged/erlang)
+-   [Programming](https://notamonadtutorial.com/tagged/programming)
