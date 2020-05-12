@@ -86,5 +86,37 @@ This is certainly a common issue within MLFE’s typer itself. I don’t current
      
     -- If t is a success apply the function f to    it or maintain a failed result:  
     try_map t f = match t with  
-    Ok result -> let runner () = f result in try_f runner  
-    | Error e -> t
+     Ok result -> let runner () = f result in try_f runner  
+     | Error e -> t
+
+I wouldn’t call the above ideal (and we need anonymous functions to make it usable to begin with) but I think it does demonstrate that it’s relatively easy to solve the problem in a few ways without needing first-class constructs.
+
+To be clear, I think Rust’s approach makes a great deal of sense since as far as I’m aware, its Result type is core to the language. My reluctance with doing the same in MLFE is almost entirely due to the conventions and capabilities in place with OTP that I see as beneficial in their own right.
+
+**What was the most difficult thing about implementing MLFE?**
+
+Wrapping my head around type inference and unification was definitely the most challenging thing so far. I’m still working to understand a lot of the details and I’m barely ready to dig into something like the implementation of an ML module system, especially when it comes to functors. We need parametric modules in order to type bindings to a lot of OTP so there will probably be something pretty simple and restrictive to start but I have a lot of studying and learning to do before I can be even reasonably confident we’ll still have a type system that’s decidable.  
+  
+**Do you have any recommendation for those of us that did not implemented any language yet?**
+
+Pick a problem or feature you find interesting and dive in! Start with a simple definitional interpreter to play with things first if you don’t want to learn an existing platform’s AST (Reynolds’ paper is [great](http://surface.syr.edu/cgi/viewcontent.cgi?article=1012&context=lcsmith_other)) or just write an interpreter! If you wanted to target a particular runtime Core Erlang’s AST is generally pretty easy to get started with and [LFE](https://github.com/lfe/) is great to learn from. If you like the JVM then [Graal and Truffle](https://github.com/graalvm) look really interesting too.
+
+I haven’t yet taken the time to dig into SICP or [PLAI](http://cs.brown.edu/~sk/Publications/Books/ProgLangs/) (and I’ve heard Dr Krishnamurthi has been working on a new one) but want to at some point. I understand they’re both really good deep dives.
+
+There are so many great ideas to check out and explore, recent work like Dr Jean Yang’s on [Jeeves](http://projects.csail.mit.edu/jeeves/) for security policy enforcement; [gradual typing](http://www.cs.ubc.ca/~rxg/gtes.pdf) — especially for effects — e.g. from Drs Banados Schwerter, Garcia, and Tanter; 1ML for a new approach to [first class modules](https://people.mpi-sws.org/~rossberg/1ml/) from Dr Andreas Rossberg and so much more we’ve barely dug into (Dr Barbara Liskov’s decades of work!).
+
+We have mountains of great ideas from so many people and are barely scratching the surface, it’s really exciting. I’d enthusiastically recommend anyone with any interest in programming languages to just pick a paper to read or an idea to research and just start following where it leads. Start reading groups!  
+  
+**What other languages do you recommend keeping an eye on?**
+
+Rust and Pony both look like they’re doing really interesting stuff and I’m curious as to where [purerl](https://github.com/purerl) — an Erlang backend for PureScript — will go too. There seems to be a lot of cool stuff happening on the Scheme side of things that I keep worrying I’m missing out on.
+
+[No rights reserved](http://creativecommons.org/publicdomain/zero/1.0/)
+###### Except where otherwise noted, this work has been dedicated to the public domain using CC0.
+###### by the author.
+
+
+-   [Erlang](https://notamonadtutorial.com/tagged/erlang)
+-   [Programming](https://notamonadtutorial.com/tagged/programming)
+-   [Ocaml](https://notamonadtutorial.com/tagged/ocaml)
+-   [Scala](https://notamonadtutorial.com/tagged/scala)
