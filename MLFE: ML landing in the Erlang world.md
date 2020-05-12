@@ -111,9 +111,8 @@ We have mountains of great ideas from so many people and are barely scratching t
 
 Rust and Pony both look like they’re doing really interesting stuff and I’m curious as to where [purerl](https://github.com/purerl) — an Erlang backend for PureScript — will go too. There seems to be a lot of cool stuff happening on the Scheme side of things that I keep worrying I’m missing out on.
 
-[No rights reserved](http://creativecommons.org/publicdomain/zero/1.0/)
-###### Except where otherwise noted, this work has been dedicated to the public domain using CC0.
-###### by the author.
+[No rights reserved by the author](http://creativecommons.org/publicdomain/zero/1.0/)
+
 
 
 -   [Erlang](https://notamonadtutorial.com/tagged/erlang)
