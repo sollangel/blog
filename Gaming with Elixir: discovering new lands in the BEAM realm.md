@@ -27,3 +27,67 @@ Java, Scala, Go and for one crazy day I even debated just writing the whole stac
 **What made you choose the Erlang VM (BEAM) instead of the JVM?**
 
 I hate writing Java… The real reason we didn’t go with a JVM environment is tuning it is kind of a black art and something I have not done in years (since Java 1.4).
+Also, we had the following goals:
+
+1.  High level of fault tolerance  
+    a. Because game teams write “scripts” we did not want them to be able to bring the node down because they wrote bad code  
+    b. If the game server goes down this is VERY bad for game developers. Users will get mad quickly and just download a different game with a very slim chance they may come back  
+    c. User Acquisition (UA) is expensive. To “buy” a user (this is done via Ads or Promotions, etc) you can spend up to $30 per person, and if your game server is crashed that money is gone.
+
+2. Easy to scale horizontally
+
+3. Easy to upgrade servers with hot patches without taking the system down
+
+With those three goals BEAM is one of the best tools for the job.
+
+**Lua is a language that is pretty common in the game development community. The Erlang VM has a Lua based language called Luerl. Why did you choose to implement Playground in Elixir instead of Luerl?**
+
+We actually started with Luerl in early 2014 as our scripting language. The problem with Luerl at the time (I have not reviewed it in some years) was its basic architecture didn’t fit our needs. Luerl is designed for you to pass it a bunch of data, process that data in Lua, then get the results back. However if you don’t know what the Lua code will be doing you need to pass in ALL possible data in one big map (and this was pre-Erlang maps so it was a custom struct the Luerl lib created). This meant we had to spend a lot of time modifying the actual Luerl package to extend its basic APIs so the game logic could “ask” our Erlang code for needed data, etc. Around mid/late 2014 Elixir had matured and we felt that the language was easy enough that most folks could pick up the basic syntax without a lot of work. In the end we are really happy that we moved off Luerl. Now our System <-> scripting environment has a near zero overhead (we don’t have to serialize/deserialize struct, etc). In fact we liked Elixir so much we ended up porting all of our Erlang system to it and now we are pretty much an Elixir shop.
+
+Also Elixir made it easy to “Walk” the code AST where we can check it for operations we don’t allow. For example, when a team writes Elixir business logic we don’t allow them to use OTP, or even spawn processes, etc.
+
+**What is the biggest difference between implementing a backend for a video game and a HTTP REST JSON api?**
+
+It all boils down to two things: latency and state.
+
+**State  
+**Games are very state-full, and if you had to send all the data needed to finish a REST-based transaction your JSON would be HUGE both upstream and downstream. Games also tend to react to events that the user did not generate so bi-directional communication is a very strong requirement. For example: If player 1 attacks player 2, player 2 will need to be notified of this event and different actions may be triggered if player 2 is online or not. Also, this state may need to be presented to other players, so in the last example player 3 may see that players 1 and 2 are in combat so he/she may jump in and help player 2.
+
+**Latency  
+**For a typically ecommerce site a 500ms latency may be completely unnoticeable. However, in a game, 500 ms could be the difference between winning and losing. So we are constantly concerned with latency. This includes things like time spent serializing/deserializing your communications, how much data you are sending up and down the wire, how long you spent accessing the DB, etc, etc.
+
+**What are the main difference between implementing actual games and game development tools?**
+
+It is the same as developing any tools/lib vs a product that goes directly to consumers. With tools you need to think about not just what the tool does but also you have to think about how others will use it. Does it have the flexibility to work in N different use cases, etc. With a game you know exactly how your product should behave and can quickly tell when things work or they don’t. With a tool it may work great with the designed use case, but some other creative engineer decided to repurpose it in a completely different way. As a tools/lib developer your challenge is to have the flexibility to support both.
+
+**What was your experience using** [**Riak Core**](https://github.com/basho/riak_core)**? What did you like and what did you not?**
+
+Riak Core is a very cool library but really you have to look at it from two angles.
+
+1.  Do I buy into the whole Consistency Hashing thing?
+2.  Do I want to implement my own solution for this?
+
+About two years ago we said yes to the first question, however getting Riak Core to work in an elixir environment was just too painful so we rolled our own solution. It worked well and was actually a bit faster than Riak Core, however it was not nearly as robust and did not handle node failures and handoffs well. Recently the Phoenix and Basho got a Hex package that actually works in Elixir and we jumped at the chance to try it out. After some evaluation we decided that the little bit of performance gains we got from our system was outweighed by the expanded functionality that Riak Core provided.
+
+**Liked**
+
+-   Very robust software that handles a lot of error cases for us.
+-   Built in gossip protocol
+-   Handles data handoffs when new nodes are brought online
+
+**Dislike**
+
+-   Dependencies that don’t work because Basho bases all their libs/tools on Erlang R15
+-   Very heavy weight
+-   Difficult to track down errors deep in the system code
+
+**Is there anything you miss from implementing actual videogames?**
+
+Working on videogames is a truly unique experience. Not only are you working with very smart engineers, you also get to work closely with Artists, Game Designers, Musicians, and sometimes even Actors. That is a very fun and exciting environment to be in.
+
+[No rights reserved by the author.](http://creativecommons.org/publicdomain/zero/1.0/)
+
+   . . . 
+-   [Erlang](https://notamonadtutorial.com/tagged/erlang)
+-   [Elixir](https://notamonadtutorial.com/tagged/elixir)
+-   [Game Development](https://notamonadtutorial.com/tagged/game-development)
