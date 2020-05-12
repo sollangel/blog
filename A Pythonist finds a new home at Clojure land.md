@@ -7,3 +7,5 @@ Vote and discuss at [lobsters](https://lobste.rs/s/nz28ef/pythonist_finds_new_ho
 
 ![](https://miro.medium.com/max/360/1*4XmtTGqxc82DyQwcpmr9pw.jpeg?q=20)
 |  |*A wallpaper I created for my OpenBSD laptop. Lisp, BSD, Erlang, Rust. We live in the best of all possible worlds.*|
+|--|--|
+|  |  |
