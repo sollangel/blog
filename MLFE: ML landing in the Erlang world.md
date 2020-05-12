@@ -70,8 +70,9 @@ If we spawn a function that is _not_ a receiver, we get a _{t_pid, undefined}_. 
 **Do you plan on adding some construct or syntactic sugar to deal with this type of issue?**
 
 This is certainly a common issue within MLFE’s typer itself. I don’t currently have plans to add any specific error handling sugar since I worry that doing so might push people away from OTP and supervision hierarchies. Having said that, I don’t think it’s at all unreasonable to have a simple error type and handling alternatives in a library. While try/catch don’t exist yet in MLFE it could look like something as simple as the following:
-     ....
-     module simple_try
+
+
+    module simple_try
     export try_f/1, try_map/2
     type t ‘result ‘error = Ok ‘result | Error ‘error
     -- try to run f, wrapping successes in Ok and failures in    Error:  
