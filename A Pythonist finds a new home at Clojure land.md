@@ -5,6 +5,6 @@ I hope you like the interview with Facundo as much as I did. If you are looking 
 
 Vote and discuss at [lobsters](https://lobste.rs/s/nz28ef/pythonist_finds_new_home_at_clojure_land), [reddit](https://www.reddit.com/r/programming/comments/65ct5j/a_pythonist_finds_a_new_home_at_clojure_land/), [hn](https://news.ycombinator.com/item?id=14114624).
 
-|![](https://miro.medium.com/max/960/1*4XmtTGqxc82DyQwcpmr9pw.jpeg?q=20)|*A wallpaper I created for my OpenBSD laptop. Lisp, BSD, Erlang, Rust. We live in the best of all possible worlds.*|
+|![](https://miro.medium.com/max/1160/1*4XmtTGqxc82DyQwcpmr9pw.jpeg?q=20)|*A wallpaper I created for my OpenBSD laptop. Lisp, BSD, Erlang, Rust. We live in the best of all possible worlds.*|
 |--|--|
 
