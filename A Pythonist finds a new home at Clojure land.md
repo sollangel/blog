@@ -91,3 +91,11 @@ And then there’s marketing factor. I’m not great at some types of job interv
 I work on a Node.js shop, but the team is full of functional enthusiasts. We can’t convince our boss to let us write a production microservice in Clojure or Elixir, or a user interface in Elm. But the boss doesn’t care that much about our integration tests (as long as there _are_ tests). So when someone complained for the zillionth time about how painful it is to write our API integration tests in JavaScript, I proposed migrating them to Clojure. To my surprise they agreed. So I hacked together this little library to easily do all that we were already doing in our Node.js API tests. And I liked how it turned out, so I’ve [published it in GitHub](https://github.com/facundoolano/restpect). Nothing too fancy but it was a good excuse to escape from JavaScript, and it got three of my coworkers learning Clojure, which is great news.
 
 Other than that, I keep slowly growing my [advenjure engine](https://github.com/facundoolano/advenjure); just [published a full game](https://facundoolano.github.io/house-taken) with it, based on a story by Julio Cortázar. Also been doing some [experiments with Macchiato](https://cljsbin-bkhgroqzwe.now.sh/), to write Clojure web apps that run on Node.js. I have this Machine Learning book I’m about to start, see where that takes me. Node.js microservices still pay my bills. For now, I guess. At some point I hope to be able to get paid for writing Clojure.
+
+[No rights reserved by the author. ](http://creativecommons.org/publicdomain/zero/1.0/)
+
+   . . .
+-   [Clojure](https://notamonadtutorial.com/tagged/clojure)
+-   [Programming](https://notamonadtutorial.com/tagged/programming)
+-   [Python](https://notamonadtutorial.com/tagged/python)
+-   [Nodejs](https://notamonadtutorial.com/tagged/nodejs)
