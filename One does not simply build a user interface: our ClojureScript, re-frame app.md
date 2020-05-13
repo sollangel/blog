@@ -7,6 +7,6 @@ Reach me via twitter at [@unbalancedparen](https://twitter.com/unbalancedparen) 
 
 _Discuss and vote at_ [_lobsters_](https://lobste.rs/s/qlblgh/one_does_not_simply_build_user_interface)_,_ [_reddit_](https://www.reddit.com/r/programming/comments/7hhrb1/one_does_not_simply_build_a_user_interface_our/) _and_ [_hn_](https://news.ycombinator.com/item?id=15844203)_._
 
-![](https://miro.medium.com/max/1100/1*BdFV-bGWhQ5HiIL6VfY5xg.png)
+![](https://miro.medium.com/max/900/1*BdFV-bGWhQ5HiIL6VfY5xg.png)
 
 Before getting into the details, a couple of disclaimers are in order:
