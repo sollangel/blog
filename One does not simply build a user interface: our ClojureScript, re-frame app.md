@@ -76,3 +76,43 @@ Eventually, though, the API reached a point where this approach was impractical 
 
 Now we needed some way to specify what data was to be fetch for each route, without cluttering the views; I came up with a generic event handler, using multimethods:
 
+    (re-frame/reg-event-fx  
+     :navigate  
+     (fn [{:keys [db]} [_ new-view]]  
+       {;; trigger the load-view event in case data from the server is required
+        :dispatch [:load-view new-view]  
+        ;; update the browser history API and switch to the given view  
+        :set-history new-view  
+        ;; set the current view in the app-db so the dom is updated  
+        :db (assoc db
+                          :loading-view? true  
+                          :current-view new-view)}))
+                          
+    (defmulti load-view  
+      "Create a multimethod that will implement different event handlers based on the  
+       view keyword."  
+      (fn [cofx [view]] view))
+      
+    (re-frame/reg-event-fx  
+     :load-view  
+     (fn [cofx [_ new-view]]  
+       ;; delegate event handling to the proper multimethod  
+       (load-view cofx [vector new-view])))
+       
+    (defmethod load-view  
+    :default  
+      [{:keys [db]} _]  
+      ;; by default don't load anything  
+      {:db (assoc db :loading-view? false)})
+      
+    (defmethod load-view  
+      :channel-list  
+      [_ _]  
+      ;; when navigating to the channel list, fetch the channels  
+      {:http-xhrio {:method :get  
+                    :uri "/api/channels"  
+                    :on-success [:channel-list-success]}})
+
+
+
+
