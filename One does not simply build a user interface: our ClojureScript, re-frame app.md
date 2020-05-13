@@ -100,7 +100,7 @@ Now we needed some way to specify what data was to be fetch for each route, with
        (load-view cofx [vector new-view])))
        
     (defmethod load-view  
-    :default  
+      :default  
       [{:keys [db]} _]  
       ;; by default don't load anything  
       {:db (assoc db :loading-view? false)})
