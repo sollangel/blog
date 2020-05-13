@@ -58,4 +58,13 @@ Perhaps the most complex part of the front end application was properly handling
 
 Initially it was simple, I just followed the [re-frame documentation](https://github.com/Day8/re-frame/blob/master/docs/Navigation.md): you add an _:active-panel_ value to your application state, update it when the user produces a navigation event (e.g. select a tab) and make your main view show the proper component based on the _:active-panel_ current value.
 
+    (def panels {:panel1 [panel1]  
+                 :panel2 [panel2]})
+    (defn high-level-view  
+      []  
+      (let [active (re-frame/subscribe [:active-panel])]  
+        (fn []  
+          [:div  
+           [:div.title "Heading"]  
+           (get panels [@active](http://twitter.com/active))])))
 
