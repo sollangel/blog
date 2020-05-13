@@ -134,4 +134,27 @@ There must be few tasks as repetitive as writing forms in a web application, spe
                                 :validate :matching-passwords?  
                                 :required true}]}]
 
+The form-view maintains a local state atom, and when the submit button is clicked, the :on-submit event is triggered passing the current input values.
+
+It took me a couple of iterations to properly integrate these from components with the rest of the app, specially when I needed to pre-populate them with data coming from other views or from back end responses. This was the one area where I had to get a bit more familiar with React internals, for example learning about [controlled and uncontrolled components](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/). After introducing the load-view handler described in the previous section this kind of issues went away.
+
+Finally, I needed a way to introduce reusable validations to the form component, without breaking the “no logic in views” rule. I found that encapsulating validation in subscription handlers worked really well. I could specify validations as part of the form specification, subscribe to them to change the style of erroneous inputs and disable submit buttons, and also use the same validations outside of the forms:
+
+    (re-frame/reg-sub  
+     :valid-required?  
+     (fn [db [_ value]]  
+       (if (string/blank? value)  
+         [false "This field is required."]  
+         [true])))
+         
+    (re-frame/reg-sub  
+     :valid-form?  
+     (fn [[_ form fields]]
+       (->> fields  
+            (get-validation-subs form)  
+            (map re-frame/subscribe)  
+            (doall)))
+            
+    (fn [validations _]  
+       (every? true? (map first validations))))
 
