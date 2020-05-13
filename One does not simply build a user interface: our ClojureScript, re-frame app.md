@@ -68,3 +68,11 @@ Initially it was simple, I just followed the [re-frame documentation](https://gi
            [:div.title "Heading"]  
            (get panels [@active](http://twitter.com/active))])))
 
+This was enough to get me going, but my first concern was how to fetch different data from the server based on the selected panel (i.e. when I’m on the channel list, GET /api/channels; when I’m on the calendar for channel _my-channel_, GET /api/channels/my-channel/holidays; etc.). The first idea that came to mind was to just trigger a request event inside the component view function, but this was directly against the philosophy of keeping logic out of the views.
+
+Asking in the re-frame Slack channel, I got the suggestion of just fetching all the required data when the user enters the application, load it in the in-memory app-db and use that as the source of truth instead of synchronizing with the server on every step. I wasn’t entirely convinced by this, especially as the application grew bigger, but it was better than polluting view functions with logic and, again, enough to move forward.
+
+Eventually, though, the API reached a point where this approach was impractical and inefficient: we had multiple endpoints which more or less mapped to different views in the UI, we couldn’t just load all the data to cover every possible navigation path. Moreover, with very distinct views it was time to bring URLs and the expected browser behavior: proper routing, interacting with the history API. I turned to [bidi](https://github.com/juxt/bidi) and [pushy](https://github.com/kibu-australia/pushy), based on a [tutorial by J. Pablo Fernández](https://pupeno.com/2015/08/26/no-hashes-bidirectional-routing-in-re-frame-with-bidi-and-pushy/).
+
+Now we needed some way to specify what data was to be fetch for each route, without cluttering the views; I came up with a generic event handler, using multimethods:
+
