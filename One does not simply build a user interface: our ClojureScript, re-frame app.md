@@ -10,3 +10,52 @@ _Discuss and vote at_ [_lobsters_](https://lobste.rs/s/qlblgh/one_does_not_simpl
 ![](https://miro.medium.com/max/900/1*BdFV-bGWhQ5HiIL6VfY5xg.png)
 
 Before getting into the details, a couple of disclaimers are in order:
+
+1.  Me and most of my coworkers have done front end over the years, but we’re all primarily back end developers. Particularly, the last time I worked on a Single-Page Application, Angular 1 was king; I vaguely knew about React ideas, but never came close to using it.
+2.  Although we threw in a wizard and a fancy yearly calendar view, the application was your typical CRUD. Exactly the kind of thing for which [you usually don’t want to build a Single-Page application](https://medium.freecodecamp.org/why-i-hate-your-single-page-app-f08bb4ff9134). We knew this and we choose to do a SPA anyway because this wasn’t a paid project so we weren’t optimizing for resource efficiency but for learning.
+
+# Language: JavaScript vs ClojureScript vs Elm
+
+The first big decision was the programming language. JavaScript is the default option, but even with a solid knowledge of the language and coming out of a couple of years with Node.js as my daily work platform, becoming a productive front end JavaScript developer in 2017 is a notable feat. The tooling and even the language keeps moving under your feet. For engineers that only get out of the server from time to time, it all feels like throw-away knowledge (just like my previous Angular experience is of little use today). And if you want to do fashionable JavaScript, you end up using transpilers anyway, so why not just use a different language altogether? I mean, we’re using Erlang already, it’s not like we mind throwing some weirdness into the mix.
+
+Elm has always been a very tempting choice for us, but learning an entire language (and one so different from the others I already know) was too much to take on for a side project whose goal was to get familiar with Erlang.
+
+And then there was ClojureScript. I was already fluent in Clojure, had some experience with ClojureScript, my Emacs was already prepared to move parentheses around… [And it delivered its promises](https://www.youtube.com/watch?v=gsffg5xxFQI). _lein new re-frame holiday-ping_ is all it took to setup a workflow with a live REPL, hot code reloading (thanks primarily to [lein-figwheel](https://github.com/bhauman/lein-figwheel/)) and advanced JavaScript compilation. This is not only simpler than all the disparate tools you need to do the same job in JavaScript, but also requires a smaller effort than [setting up a good workflow in JVM Clojure](http://thinkrelevance.com/blog/2013/06/04/clojure-workflow-reloaded).
+
+# Om vs Reagent vs Om.next vs re-frame
+
+Next up was the library or framework to build the UI. We could have gone with a simple DOM manipulation library like [dommy](https://github.com/plumatic/dommy), but we decided — at our own risk — to build a Single-Page App, therefore we looked at React wrappers: [Reagent](http://reagent-project.github.io/) and [Om](https://github.com/omcljs/om). We couldn’t afford to build prototypes with both tools so we have to settle for reviewing the documentation and examples, and getting opinions from friends and the web. As Gandalf once said: _all engineers have to do is to pick a library with the time that is given to them_.
+
+Reagent right away seemed more idiomatic Clojure, relying mostly on plain data and functions (and, in the case of re-frame, _pure_ functions) while Om used a lot of objects and protocols, _reify_ and JavaScript interop. Reagent also used the lovely hiccup syntax to describe HTML as data, while Om leaned on functions by default (although there are [libraries to switch to hiccup](https://github.com/r0man/sablono)). Lastly, Om seemed to require a better knowledge of the React lifecycle, which added another layer to get familiar with. A quick comparison of [TodoMVC](http://todomvc.com/) code illustrates why my gut feeling was to go with [Reagent](https://github.com/reagent-project/reagent/blob/master/examples/todomvc/src/todomvc/core.cljs#L62-L75) rather than [Om](https://github.com/swannodette/todomvc/blob/gh-pages/labs/architecture-examples/om/src/todomvc/item.cljs#L47-L83).
+
+So I leaned more towards Reagent than Om. But those only provide React wrappers; the real choice had to be between [Om.next](https://github.com/omcljs/om/wiki/Quick-Start-%28om.next%29) and [re-frame](https://github.com/Day8/re-frame), otherwise I’d had have to come up with an architecture myself, and I didn’t have the background to do it effectively. I caught a great explanation of this by Mike Thompson (author of re-frame) in the Clojurians Slack:
+
+> You can absolutely use Reagent by itself if your application is simple enough. BUT if you just use Reagent by itself then you only have the V bit of an application. As your application starts to get more complicated, you **will** start to create an architecture which adds _control logic_ and _state management_ — the M and C parts (even if you don’t think you are, you are). So then the question becomes: is your architecture better than re-frame’s or not? And some people prefer their own architectures and would answer “yes” :-) Fair enough.
+> 
+> I think the only danger arises if this process is not conscious — if someone creates a dog’s breakfast of an architecture and doesn’t even know they’ve done it. I’ve had MANY people privately admit that’s what happened to them… and then they swapped to re-frame to get some structure back. So, my advice is… if your application is a little more complicated, be sure to make a conscious choice around architecture, because one way or another you’ll be using one.
+
+# CSS framework
+
+For styles we went with [Bulma](https://bulma.io/): we wanted something lighter than Bootstrap, specifically no JavaScript. Bulma is simple, easy to use, feels lightweight and looks good. In combination with hiccup it meant I was pulling off a beautiful UI without HTML, CSS or JavaScript; all my components were conveniently built by moving Clojure data around Emacs.
+
+Perhaps the one downside was that there aren’t many pre-baked fancy components like Bootstrap has. We kind of made that choice anyway by using ClojureScript in the first place; when we wanted a complex component we either coded it ourselves (we did with tag list inputs) or we avoided them (e.g. no type-ahead selects).
+
+# Developing a Single-Page App with ClojureScript and re-frame
+
+I just needed to read the first few [re-frame tutorials](https://github.com/Day8/re-frame/tree/master/docs) to get started. It felt like re-frame built on the concepts I was already familiar from Clojure and I became reasonably productive in a matter of days, which was amazing considering I hardly knew the first thing about React. [This guide](https://purelyfunctional.tv/guide/re-frame-building-blocks/) provides a good overview of the framework.
+
+As mentioned, the workflow is amazing: you write pure functions, describing HTML components as Clojure data literals, and figwheel auto reloads them; if you want to play around with a dependency or interop with JavaScript and the browser APIs, just switch to the tab where the REPL is running. Instant gratification all the way.
+
+At first, the re-frame structure can be a little overwhelming: you have events, subscriptions, effects, co-effects… Specially it took me a while to find the justification for subscription handlers, since most of the times they were trivial reads of the database. I think it helped when I read enough times that a design goal of re-frame was to keep views as dumb and decoupled from state as possible; under that light all the pieces started to fall into place: re-frame handles the dirty work and side-effects, you just declare what needs to be done through functions that return data (with the bonus that your code becomes easier to test).
+
+The one thing I don’t quite like about re-frame is how all definitions (reg-event, reg-sub, reg-fx, reg-cofx) set up some hidden application state. I’d prefer to just have standalone functions and pass a map or some other data structure into a single re-frame initialization step. As it is, it forces you to require namespaces just for the side effects they produce, which doesn’t feel very idiomatic.
+
+While re-frame is a very opinionated framework and provides a lot structure, there still are some design aspects left to the programmer. Following are some notes of decisions I had to make; a lot of it I figured out along the way and there may be better ways to do it. Critiques and suggestions are certainly welcome.
+
+# Routing and navigation
+
+Perhaps the most complex part of the front end application was properly handling navigation. It’s also the place where you pay the penalty of using a SPA framework to build an application that requires browser-like logic (i.e. multiple multiple entry points based on the url, working back/forward buttons, etc.).
+
+Initially it was simple, I just followed the [re-frame documentation](https://github.com/Day8/re-frame/blob/master/docs/Navigation.md): you add an _:active-panel_ value to your application state, update it when the user produces a navigation event (e.g. select a tab) and make your main view show the proper component based on the _:active-panel_ current value.
+
+
