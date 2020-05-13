@@ -125,13 +125,13 @@ There must be few tasks as repetitive as writing forms in a web application, spe
                                 :type "email"  
                                 :validate :valid-email?  
                                 :required true}  
-                              {:key :password  
-                               :type "password"  
-                               :required true}  
-                             {:key :password-repeat  
-                              :type "password"  
-                              :label "Repeat password"  
-                              :validate :matching-passwords?  
-                              :required true}]}]
+                               {:key :password  
+                                :type "password"  
+                                :required true}  
+                               {:key :password-repeat  
+                                :type "password"  
+                                :label "Repeat password"  
+                                :validate :matching-passwords?  
+                                :required true}]}]
 
 
