@@ -158,3 +158,17 @@ Finally, I needed a way to introduce reusable validations to the form component,
     (fn [validations _]  
        (every? true? (map first validations))))
 
+# Closing thoughts
+
+This was a modest project and as such didn’t reveal any higher truth. Instead, it reinforced some ideas and reminded us about things we tend to forget. I liked that it gave us a better perspective than what we’re used to, working mainly as back end engineers: this time we had to write a front end to our APIs and be a user to our interfaces.
+
+A good design should model the domain of the problem it is trying to solve, rather than accommodate to immediate client needs. But as engineers we have to expect the user experience to reveal aspects of the domain that we missed, were unforeseeable or plainly didn’t exist at design stage. You need a UI to be able to poke around with the application to see what feels right and what doesn’t, and change the model accordingly. In our case, as soon as we started to use the front end, we realized that the relationships between our entities had to be turned around. What was more interesting: once we made those changes the code became simpler in ways we hadn’t considered.
+
+This is no news, but front end takes a lot of work. We were aiming for a very simple UI, one that covered a fraction of the application surface, and it still required more work and way more trial and error than the back end. The dumbest front end application takes a non trivial amount of work to get right and provide an adequate user experience; traditional server-side applications, on the other hand, are becoming easier and easier to put together, to the point that they are arguably becoming extinct.
+
+   . . .
+-   [Clojure](https://notamonadtutorial.com/tagged/clojure)
+-   [Clojurescript](https://notamonadtutorial.com/tagged/clojurescript)
+-   [React](https://notamonadtutorial.com/tagged/react)
+-   [Holidayping](https://notamonadtutorial.com/tagged/holidayping)
+
