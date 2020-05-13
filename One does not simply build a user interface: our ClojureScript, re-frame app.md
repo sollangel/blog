@@ -113,6 +113,25 @@ Now we needed some way to specify what data was to be fetch for each route, with
                     :uri "/api/channels"  
                     :on-success [:channel-list-success]}})
 
+Even though this felt a bit hacky, seeing the view functions become cleaner somewhat validated the approach. For such an opinionated framework, though, I wished there was a recommended way to handle this use case, which is probably a frequent one (maybe there is and I just didn’t find it).
 
+# Forms and validations
+
+There must be few tasks as repetitive as writing forms in a web application, specially if there are many CRUD components. After writing a couple of them, I obviously started looking for ways to build a reusable component that would create them based on a specification. I managed to do so, again by resorting to multimethods, such that each method would render differently based on the input type (text, password, select, etc.); the API ended up looking like:
+
+    [forms/form-view {:submit-text "Register"  
+                      :on-submit [:register-submit]  
+                      :fields [{:key :email  
+                                :type "email"  
+                                :validate :valid-email?  
+                                :required true}  
+                              {:key :password  
+                               :type "password"  
+                               :required true}  
+                             {:key :password-repeat  
+                              :type "password"  
+                              :label "Repeat password"  
+                              :validate :matching-passwords?  
+                              :required true}]}]
 
 
