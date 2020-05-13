@@ -85,8 +85,8 @@ Now we needed some way to specify what data was to be fetch for each route, with
         :set-history new-view  
         ;; set the current view in the app-db so the dom is updated  
         :db (assoc db
-                          :loading-view? true  
-                          :current-view new-view)}))
+                   :loading-view? true  
+                   :current-view new-view)}))
                           
     (defmulti load-view  
       "Create a multimethod that will implement different event handlers based on the  
