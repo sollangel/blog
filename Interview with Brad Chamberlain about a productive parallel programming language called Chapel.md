@@ -44,11 +44,7 @@ In stark contrast, Chapel supports what we call a _global view_ of programming, 
 
 As an illustration of Chapel’s advantages, consider the STREAM Triad benchmark which multiplies a vector by a scalar, adds it to a second vector, and assigns it to a third. In Chapel, this can be written in a way that will use all the cores of all the system’s compute nodes as follows:
 
-    **use** BlockDist, HPCCProblemSize;
-    
-    **config** **type** elemType = **real**;  
-    **config** **const** m = computeProblemSize(numArrays=3, elemType),  
-                 alpha = 3.0;
+     **use** BlockDist, HPCCProblemSize;
 
 
 
