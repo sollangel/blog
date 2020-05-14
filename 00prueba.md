@@ -11,5 +11,5 @@
       B = 2.0;
       C = 1.0;
       
-    A = B + alpha * C;
-    }
+      A = B + alpha * C;
+      }
