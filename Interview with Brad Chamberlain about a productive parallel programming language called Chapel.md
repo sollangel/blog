@@ -70,10 +70,11 @@ Today, Chapel programs tend to perform competitively with hand-coded C and C++. 
 
 Since we care about code clarity, we tend to graph the Computer Language Benchmark Game results on scatter plots showing normalized execution times versus code compactness (as a proxy metric for clarity). In such views, Chapel tends to fall in a very unique position, being competitive in speed with the fastest languages while also nearly as compact as scripting languages. The following two plots illustrate this (the right graph zooms in on the fastest entries for readability):
 
-![](https://miro.medium.com/max/960/0*5HKm6tfdrqfXiXWP.?q=20)
+![](https://miro.medium.com/max/760/0*5HKm6tfdrqfXiXWP.?q=20)
 
 
-![](https://miro.medium.com/max/960/0*YHDLOnTtFepJmsUV.?q=20)
+![](https://miro.medium.com/max/760/0*YHDLOnTtFepJmsUV.?q=20)
+
 
 
 **Why did you implement Chapel using LLVM**
