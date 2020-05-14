@@ -2,7 +2,7 @@
 
     config type elemType = real;
     config const m = computeProblemSize(numArrays=3, elemType),
-         alpha = 3.0;
+             alpha = 3.0;
          
     proc main() {
       const ProblemSpace = {1..m} dmapped Block(boundingBox={1..m});
