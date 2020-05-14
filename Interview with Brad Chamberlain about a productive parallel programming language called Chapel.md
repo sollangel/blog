@@ -66,3 +66,14 @@ As an illustration of Chapel’s advantages, consider the STREAM Triad benchmark
 
 **Performance-wise, how does Chapel compare to languages like C, C++, Go, Rust?**
 
+Today, Chapel programs tend to perform competitively with hand-coded C and C++. I’m not aware of any detailed performance comparisons with Go and Rust, though in the [Computer Language Benchmarks Game](https://benchmarksgame.alioth.debian.org/) (CLBG) we’re currently ranked as being a bit faster than Go and a bit slower than Rust. That said, there are specific CLBG benchmarks where any of these five languages win or lose, and many of the fastest entries take a far more heroic and painstaking approach than the Chapel versions.
+
+Since we care about code clarity, we tend to graph the Computer Language Benchmark Game results on scatter plots showing normalized execution times versus code compactness (as a proxy metric for clarity). In such views, Chapel tends to fall in a very unique position, being competitive in speed with the fastest languages while also nearly as compact as scripting languages. The following two plots illustrate this (the right graph zooms in on the fastest entries for readability):
+
+![](https://miro.medium.com/max/960/0*5HKm6tfdrqfXiXWP.?q=20)
+
+
+![](https://miro.medium.com/max/960/0*YHDLOnTtFepJmsUV.?q=20)
+
+
+**Why did you implement Chapel using LLVM**
