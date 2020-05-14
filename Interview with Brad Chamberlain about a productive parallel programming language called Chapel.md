@@ -76,5 +76,32 @@ Since we care about code clarity, we tend to graph the Computer Language Benchma
 ![](https://miro.medium.com/max/760/0*YHDLOnTtFepJmsUV.?q=20)
 
 
-
 **Why did you implement Chapel using LLVM**
+In all honesty, one of my biggest regrets in the project today is that we didn’t implement Chapel using LLVM from day one. When our project started, LLVM was still in its infancy, and there was no reason to believe that it would become the foundational technology that it is today. As a result, our initial compiler approach (which remains the default today) was to compile Chapel down to C which is then compiled by the back-end C compiler of your choice. This approach treats C as a portable assembly language and has worked reasonably well for us over time. However, it is also unfortunate because the Chapel compiler may have semantic information which is challenging or impossible to convey through C to the back-end compiler.
+
+In contrast, Chapel’s LLVM back-end permits us to translate Chapel directly to LLVM’s Internal Representation (IR), giving us greater semantic control plus the possibility of adding Chapel-specific extensions. Since LLVM is a popular compiler framework, using it lets us leverage developer familiarity, not to mention open-source packages. One such example is Simon Moll’s Region Vectorizer for LLVM, developed at Saarland University. We’ve found that it tends to generate better vector performance for Chapel programs than conventional C back-end compilers. But even more importantly, LLVM gives us a single, portable back-end that saves us the trouble of wrestling with the quirks and bugs that are present across the wide diversity of back-end C compiler versions that we attempt to support today. In 2018, we hope to make LLVM our default back-end for these reasons.
+
+**What is GASNet? Why do you use it in Chapel?**
+
+GASNet is an open-source library for portable inter-process communication developed by Berkeley Labs / UC Berkeley. Its communication primitives include active messages and one-sided puts to (or gets from) the memory of a remote process. The GASNet team maps these calls down to the native Remote Direct Memory Access (RDMA) capabilities of various networks while also supporting fallback implementations over UDP or MPI for portability.
+
+These primitives are precisely what a language like Chapel needs to compile to distributed memory systems: Active messages are the natural way to implement Chapel’s _on-clauses_ which are used to migrate tasks from one compute node to another. Similarly, writing/reading a variable back on the originating locale maps naturally to one-sided puts/gets since only one process will know when such communications are required. As a result, GASNet gives us a portable way to run Chapel on virtually any distributed system. It’s also one of the best engineered and maintained open-source packages we’ve worked with, and the development team is incredibly responsive to questions and issues.
+
+**How do you manage errors? If a long-running computation in multiple nodes crashes in one node, how do you recover the work done or re-execute it without having to re-run everything?**
+
+For user-level errors within the program itself, Chapel supports the ability to throw and catch errors using a low-overhead approach that was inspired by Swift’s error-handling model. This is a relatively new feature set within Chapel, and it rounds out our core capabilities nicely.
+
+That said, your question seems more oriented toward catastrophic errors that may be outside of the programmer’s control, such as having one of their compute nodes fail. Today, Chapel doesn’t handle such cases gracefully, which arguably reflects our HPC heritage. Runtime libraries and system software for HPC have a long tradition of tearing down jobs when fatal errors occur, and Chapel inherits this behavior to some extent. Resiliency is a growing concern within the HPC community as our system scales grow, and we have some ideas for improving Chapel’s ability to cope with such events. Similar features could also be attractive to users from cloud computing environments who are accustomed to elasticity in their environment. That said, we have not yet had the opportunity to pursue these ideas, so they remain an area of potential future research or collaboration.
+
+**Is there any way to trace what a live system is currently doing?**
+
+We haven’t developed any Chapel-specific tools for tracing or visualizing Chapel executions in real-time. That said, third-party tools can be used with Chapel as with any other C program. We do have a tool named _chplvis,_ developed by Professor Phil Nelson of Western Washington University, which supports visualizing the communication and tasking events logged by a Chapel program. This permits a user to visually inspect a Chapel program’s execution to find possible sources of overhead, but it is strictly a post-mortem tool at present.
+
+**Are you aware of anybody using Chapel in the AI/Machine Learning world?**
+
+We’ve definitely seen an uptick in interest from AI programmers in recent years as the field has become more prevalent, both in HPC and in general. Our most prominent user in this space at present is Brian Dolan, who is the Chief Scientist and Co-Founder of [Deep 6 AI](https://deep6.ai/), a start-up that is accelerating the matching of medical patients to clinical trials. After being disappointed by programming solutions that didn’t live up to their hype, Brian was drawn to Chapel last summer due to its ability to support programs with Python-like clarity, combined with the promise of supporting performance and scalability like C or Fortran with MPI. Half a year later, he’s become one of our most active and vocal users.
+
+   . . . 
+-   [Programming](https://notamonadtutorial.com/tagged/programming)
+-   [Parallel Computing](https://notamonadtutorial.com/tagged/parallel-computing)
+-   [Programming Languages](https://notamonadtutorial.com/tagged/programming-languages)
