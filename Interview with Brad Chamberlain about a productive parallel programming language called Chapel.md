@@ -62,4 +62,7 @@ As an illustration of Chapel’s advantages, consider the STREAM Triad benchmark
  
  In contrast, doing the same thing in C + MPI + OpenMP results in computation like the following, due to the SPMD programming model as well as the lower-level notations (MPI-oriented code is in red, OpenMP in blue):
  
- 
+ ![](https://miro.medium.com/max/1400/0*7A817ub0TK9QWgLW.)
+
+**Performance-wise, how does Chapel compare to languages like C, C++, Go, Rust?**
+
