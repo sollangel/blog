@@ -1,7 +1,9 @@
 # Interview with Brad Chamberlain about a productive parallel programming language called Chapel
 
 As you might know, I am a big fan of concurrency, parallelism and distribution but I know almost nothing about high performance computing (HPC) so I decided to get out from my comfort area. This time I’ve interviewed Brad Chamberlain about [Chapel](https://github.com/chapel-lang/chapel), a productive parallel programming language.
+
                                              . . .
+                                             
  I 've created a Not a Monad Tutorial newsletter so that you receive an email whenever we publish a new story. [Sign up!](https://mailchi.mp/9302d4f60de9/not-a-monad-tutorial)
 
 Reach me via twitter at [@unbalancedparen](https://twitter.com/unbalancedparen) if you have any comments or interview request for [This is not a Monad tutorial](https://medium.com/this-is-not-a-monad-tutorial/).
@@ -9,6 +11,7 @@ Reach me via twitter at [@unbalancedparen](https://twitter.com/unbalancedparen) 
 _Discuss and vote at_ [_lobsters_](https://lobste.rs/s/zmqo84/interview_with_brad_chamberlain_about)_,_ [_reddit_](https://www.reddit.com/r/programming/comments/7x2jhp/interview_with_brad_chamberlain_about_a/) _and_ [_hn_](https://news.ycombinator.com/item?id=16360381)_._
 
 ![](https://miro.medium.com/max/260/1*Vbk8JH0pBz1gSHSbxV799A.png?q=20)
+
 **What problems does Chapel solve? Who is the ideal user of Chapel?**
 
 Chapel supports scalable parallel programming in a portable way: programs developed on a user’s multicore laptop can be run on commodity clusters, the cloud, and supercomputers from [Cray](https://www.cray.com/) or other vendors. Chapel is also designed to vastly improve the productivity of performance-oriented programming, whether serial or parallel. As such, it supports programs with Python-like clarity while retaining the performance of lower-level approaches to programming like C, C++, Fortran, MPI, and OpenMP (the _de facto_ standards for high-performance parallel programming).
