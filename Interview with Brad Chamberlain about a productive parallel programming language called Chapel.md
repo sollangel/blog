@@ -63,8 +63,11 @@ As an illustration of Chapel’s advantages, consider the STREAM Triad benchmark
  
 In contrast, doing the same thing in C + MPI + OpenMP results in computation like the following, due to the SPMD programming model as well as the lower-level notations (MPI-oriented code is in red, OpenMP in blue):
 
-![](https://miro.medium.com/max/860/0*7A817ub0TK9QWgLW.?q=20)
+![](https://m**Performance-wise, how does Chapel compare to languages like C, C++, Go, Rust?**
 
+Today, Chapel programs tend to perform competitively with hand-coded C and C++. I’m not aware of any detailed performance comparisons with Go and Rust, though in the [Computer Language Benchmarks Game](https://benchmarksgame.alioth.debian.org/) (CLBG) we’re currently ranked as being a bit faster than Go and a bit slower than Rust. That said, there are specific CLBG benchmarks where any of these five languages win or lose, and many of the fastest entries take a far more heroic and painstaking approach than the Chapel versions.
+
+Since we care about code clarity, we tend to graph the Computer Language Benchmark Game results on scatter plots showing normalized execution times versus code compactness (as a proxy metric for clarity). In such views, Chapel tends to fall in a very unique position, being competitive in speed with the fastest languages while also nearly as compact as scripting languages. The following two plots illustrate this (the right graph zooms in on the fastest entries for readability):
 
 
  
