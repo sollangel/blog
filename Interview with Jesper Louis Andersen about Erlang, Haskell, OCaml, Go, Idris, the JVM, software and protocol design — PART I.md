@@ -10,10 +10,11 @@ Reach me via twitter at [@unbalancedparen](http://twitter.com/unbalancedparen) i
 
 PD: I just published part II of the interview. [Check it out!](https://medium.com/this-is-not-a-monad-tutorial/interview-with-jesper-louis-andersen-about-erlang-haskell-ocaml-go-idris-the-jvm-software-and-5628fe591295)
 
- **Your reply to the picture that is below was:**
+                                            . . .
+
+**Your reply to the picture that is below was:**
 
 > *The typical applications I write in Erlang have 3–4 functions above it in the call stack*
 
 **Modern comfortable programming language #java:**
-                                            . . .
 
