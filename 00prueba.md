@@ -1,7 +1,7 @@
 # **How to pretend you have social skills**
 
 
-| ![](https://miro.medium.com/max/160/1*Zn-cHY_cpFVxmhkIAwhYzw.png?q=20) | A software company from another dimension
+|![](https://miro.medium.com/max/160/1*Zn-cHY_cpFVxmhkIAwhYzw.png?q=20)| A software company from another dimension
 
 This time I decided to do something uncommon. I have asked Martina Cantaro, a psychologist that works for our company [Lambdaclass,](http://lambdaclass.com/) to write about the work she is doing training young developers. I hope you find it useful.
 
