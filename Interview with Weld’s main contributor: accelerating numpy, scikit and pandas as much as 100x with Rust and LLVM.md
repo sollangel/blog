@@ -29,4 +29,43 @@ Weld provides optimizations across functions in these libraries, whereas optimiz
 
 ###### Prototype integrations of Weld with Spark (top left), NumPy (top right), and TensorFlow (bottom left) show up to 30x improvements over the native framework implementations, with no changes to users’ application code. Cross library optimizations between Pandas and NumPy (bottom right) can improve performance by up to two orders of magnitude._
 
+**What is Baloo?**
+
+Baloo is a library that implements a subset of the Pandas API using Weld. It was developed by Radu Jica, who was a Master’s student in CWI in Amsterdam. The goal of Baloo is to provide the kinds of optimizations described above in Pandas to improve its single-threaded performance, reduce memory usage, and to enable parallelism.
+
+**Does Weld/Baloo support out-of-core operations (say, like Dask) to handle data that does not fit in memory?**
+
+Weld and Baloo currently do not support out-of-core operations, though we’d love open source contributions on this kind of work!
+
+**Why did you choose Rust and LLVM to implement weld? Was Rust your first choice?**
+
+We chose Rust because:
+
+-   It has a very minimal runtime (essentially just bounds checks on arrays) and is easy to embed into other languages such as Java and Python
+-   It contains functional programming paradigms such as pattern matching that make writing code such as pattern matching compiler optimizations easier
+-   It has a great community and high quality packages (called “crates” in Rust) that made developing our system easier.
+
+We chose LLVM because its an open source compiler framework that has wide use and support; we generate LLVM directly instead of C/C++ so we don’t need to rely on the existence of a C compiler, and because it improves compilation times (we don’t need to parse C/C++ code).
+
+Rust was not the first language in which Weld was implemented; the first implementation was in Scala, which was chosen because of its algebraic data types and powerful pattern matching. This made writing the optimizer, which is the core part of the compiler, very easy. Our original optimizer was based on the design of Catalyst, which is Spark SQL’s extensible optimizer. We moved away from Scala because it was too difficult to embed a JVM-based language into other runtimes and languages.
+
+**If Weld targets CPU and GPUS how does it compare to projects like RAPIDS that implements python data science libraries but for the GPU?**
+
+The main way Weld differs from systems such as RAPIDS is that it focuses on optimizing applications across individually written kernels by JIT compiling code rather than providing optimized implementations of individual functions. For example, Weld’s GPU backend would JIT-compile a single CUDA kernel optimized for the end-to-end application on the fly rather than calling existing individual kernels. In addition, Weld’s IR is meant to be hardware independent, allowing it to target GPUs as well as CPUs or custom hardware such as vector accelerators. Of course, Weld overlaps significantly and is influenced by many other projects in the same space, including RAPIDS. Runtimes such as Bohrium (a lazily evaluated NumPy) and Numba (a Python library that enables JIT compilation of numerical code) both share Weld’s high level goals, while optimizers systems such as Spark SQL have directly impacted Weld’s optimizer design.
+
+**Does weld have other applications outside data science library optimizations?**
+
+One of the most exciting aspects of Weld’s IR is that it supports data parallelism natively. This means that loops expressed in the Weld IR are always safe to parallelize. This makes Weld an attractive IR for targeting new kinds of hardware. For example, collaborators at NEC have demonstrated that they can use Weld to run Python workloads on a custom high-memory-bandwidth vector accelerator just by adding a new backend to the existing Weld IR. The IR can also be used to implement the physical execution layer in a database, and we plan to add features that will make it possible to compile a subset of Python to Weld code as well.
+
+**Are the libraries ready to be used on real-life projects? If not, when can we expect them to be ready?**
+
+Many of the examples and benchmarks we’ve tested these libraries on are taken from real workloads, so we’d love it if users tried out the current versions for their own applications, provided feedback, and (best of all) submitted open source patches. That said, we don’t expect everything to work out of the box on real-life applications just yet. Our next few releases over the following couple months are focusing exclusively on usability and robustness of the Python libraries; our goal is to make the libraries good enough for inclusion in real-life projects, and to seamlessly fall back to the non-Weld versions of the libraries in places where support is yet to be added.
+
+As I mentioned on the first answer, one path toward making this easier comes in the form of a related project called split annotations ([code](https://github.com/weld-project/split-annotations) and [academic paper](https://shoumik.xyz/static/papers/mozart-sosp19final.pdf)). Split annotations are a system that allow annotating existing code to define how to split, pipeline, and parallelize it. They provide the optimization that we found was most impactful in Weld (keeping chunks of data in the CPU caches between function calls rather than scanning over the entire dataset), but they are significantly easier to integrate than Weld because they reuse existing library code rather than relying on a compiler IR. This also makes them easier to maintain and debug, which in turn improves their robustness. Libraries without full Weld support can fall back to split annotations when Weld is not supported, which will allow us to incrementally add Weld support based on feedback from users while still enabling some new optimizations.
+
+   . . .
+   
+-   [Programming](https://notamonadtutorial.com/tagged/programming)
+-   [Rust](https://notamonadtutorial.com/tagged/rust)
+-   [Data Science](https://notamonadtutorial.com/tagged/data-science)
 
