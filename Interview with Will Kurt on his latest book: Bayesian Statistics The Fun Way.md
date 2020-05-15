@@ -84,4 +84,18 @@ There’s two things wrong with p-values. First of all, p-values are not the way
 >
 >*You: “No, no, I’m pretty sure that’s not the case”*
 
+p-values confuse people because they are, quite literally, confusing. Bayesian statistics gives you a posterior probability, which is exactly the positive answer to the question being posed that you want. In the previous dialog the Bayesian says “I’m pretty sure it’s fixed”, if the manager wants you to be more sure, you collect more data and then you can say “I’m basically certain it’s fixed”.
+
+The second problem is the culture of arbitrarily picking 0.05 as some magic value that has meaning. Related to the previous question about understanding probabilities, a 5% chance of something occuring does not make it very rare. Rolling a 20 sided die and getting a 20 has a 5% chance, and anyone who knows of Dungeons and Dragons (D&D) knows that this is far from impossible. Outside of role playing games, focusing on a die roll is not a great system of verifying true from false.
+
+And that brings us to p-hacking. Imagine you’re playing D&D with some friends and you role twenty 20-sided dice all at one. You then point one that landed on 20 and proclaim “that was the die I meant to roll, the rest are all just test dice.” It’s still cheating even if you technically did roll a 20. That’s what p-hacking essentially is. You keep doing analysis until you find something that is ‘significant’, and then claim that’s what you were looking for the entire time.
+
+**10. Any closing recommendations on what book to read next after reading your book?**
+
+Now that I’ve finished writing this book I finally have time to start catching up on other books that I didn’t have time to read while writing it! I’m really enjoying Osvaldo Martin’s “Bayesian Analysis with Python” (I know Not Monad Tutorial interviewed him not long ago). It’s a great book that approaches Bayesian analysis through PyMC3. I really think the world of probabilistic programming is very exciting and will be more and more an essential part of practical Bayesian statistics. Another book I really want to read is Richard McElreath’s “Statistical Rethinking”. It has a second edition coming out soon so I’m slightly hesitant to get copy before that. McElreath has put up a bunch of great supporting material on his [website](https://xcelab.net/rm/statistical-rethinking/), so I might not be able to wait until the 2nd edition to get a copy. Both of these sources would be great next steps following “Bayesian Statistics the Fun Way”. Another good recommendations would be Kruschke’s “Doing Bayesian Data Analysis”.
+
+   . . .
+-   [Machine Learning](https://notamonadtutorial.com/tagged/machine-learning)
+-   [Statistics](https://notamonadtutorial.com/tagged/statistics)
+-   [Books](https://notamonadtutorial.com/tagged/books)
 
