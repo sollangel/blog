@@ -13,6 +13,6 @@ Also remember that we’ve created a Not a Monad Tutorial newsletter so that you
 
 Reach me via twitter at [@unbalancedparen](https://twitter.com/unbalancedparen) if you have any comments or interview requests.
 
-    . . .
+                                                      . . .
   
 
