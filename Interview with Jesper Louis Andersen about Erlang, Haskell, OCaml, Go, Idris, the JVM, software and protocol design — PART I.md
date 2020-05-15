@@ -10,7 +10,7 @@ Reach me via twitter at [@unbalancedparen](http://twitter.com/unbalancedparen) i
 
 PD: I just published part II of the interview. [Check it out!](https://medium.com/this-is-not-a-monad-tutorial/interview-with-jesper-louis-andersen-about-erlang-haskell-ocaml-go-idris-the-jvm-software-and-5628fe591295)
 
-                                            . . .
+                                                    . . .
 
 **Your reply to the picture that is below was:**
 
@@ -31,3 +31,18 @@ Erlang is no different, but from the outset, small-community languages are less 
 > *“Lets talk agile: The ultimate agile language is one in which you can deliver working code quickly, which is also maintainable. Hence there are only a few agile languages in existence: Haskell, Ocaml and Erlang are 3. Go, Javascript, Python and the rest lacks the necessary abstractions to be regarded as agile. You end up having to recode. However, the **real** solution is to stop doing agile. The idea is bullshit in the first place.”*
 
 **Why Haskell, OCaml and Erlang are the only agile languages?**
+
+If the waterfall model risks not building the right product, then agile risks not building the product right. I’m very fond of Erlang creator Mike Williams point:` “If you don’t make experiments before starting a project, then your whole project will be an experiment”`. My hunch is what a lot of Agile process misses is that you need to experiment before you build.
+If we instead ask about prototyping, then we need a programming language with certain traits. The team is usually small, so we need an expressive language, and we need to address the core kernel of the system in isolation, first. We don’t need a lot of interfacing to foreign systems and in general we won’t care too much if the system we build is fast. Also, we usually won’t need to operate the prototype in production, since it is simply a proof of concept.
+
+From a perspective of rapid prototyping and proof-of-concept development, functional languages tend to have an edge over imperative ones. Their higher level and expressivity allows more to be said succinctly, in fewer lines of code. They also tend to describe data structures and algorithms in ways that are clearer, which helps understanding of the problem space.
+
+In turn, since agile values the minimum viable product, moving fast and making experiments, then you need languages in which it is easy to experiment with the unknown ideas many agile projects face. In languages such as Haskell, Erlang and OCaml you can often iterate over far more designs in a limited time window. Thus you can carry out more experiments and this often leads to a better product, even if the final product is not even written in a functional language. In general I feel we value experimentation too little. Build it, throw it away, and rewrite with the new knowledge.
+
+**What do you think about Clojure?**
+
+Sadly, my experience with Clojure is limited to carrying out a set of Koans in the language, and I have not ever used it for anything serious work. I must admit I don’t find the language especially compelling, and in general I don’t find Lisp-dialects interesting. My language roots are closer to Standard ML, which may be the reason it did not catch my interest when I finally tried toying with Scheme and Common Lisp.
+
+That said, people are doing lots of outright _amazing_ stuff in Clojure. I think the Datomic project is genuinely interesting as a database system. And the work Kyle Kingsbury has done with his “Jepsen” framework and his “Knossos” linearizability checker in Clojure is solid work. I’m also following David Nolen’s work with interest. But I’m pretty sure the language isn’t “for me”.
+
+
