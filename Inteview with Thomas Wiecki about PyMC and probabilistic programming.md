@@ -2,8 +2,10 @@
 
 ![](https://miro.medium.com/max/904/1*Ke59y1Iyox6MUJ1HpEkLyg.jpeg)
 
-“A colleague of von Neumann and Ulam, Nicholas Metropolis, suggested using the name _Monte Carlo_, which refers to the Monte Carlo Casino in Monaco where Ulam’s uncle would borrow money from relatives to gamble”
+###### “A colleague of von Neumann and Ulam, Nicholas Metropolis, suggested using the name _Monte Carlo_, which refers to the Monte Carlo Casino in Monaco where Ulam’s uncle would borrow money from relatives to gamble”
+
 After studying and working with distributed systems my interests drifted into data science, artificial intelligence, machine learning and now statistics. After a while I found I really liked applying what I have learnt into finance. That is how I learnt about probabilistic programming and [PyMC](https://docs.pymc.io/) while reading Thomas Wiecki posts at [Quantopian blog](https://blog.quantopian.com/). That’s why we decided to interview Thomas. I hope you like this interview as much as we did.
+
                                                           . . .
 I ‘ve created a Not a Monad Tutorial newsletter so that you receive an email whenever we publish a new story. [Sign up!](https://mailchi.mp/9302d4f60de9/not-a-monad-tutorial)
 
