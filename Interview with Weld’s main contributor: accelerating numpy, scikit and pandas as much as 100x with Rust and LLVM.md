@@ -27,6 +27,6 @@ Weld provides optimizations across functions in these libraries, whereas optimiz
 
 ![](https://miro.medium.com/max/1104/1*eheS9p1hxxEPH8Fqo3As8A.png)
 
-###### _Prototype integrations of Weld with Spark (top left), NumPy (top right), and TensorFlow (bottom left) show up to 30x improvements over the native framework implementations, with no changes to users’ application code. Cross library optimizations between Pandas and NumPy (bottom right) can improve performance by up to two orders of magnitude._
+###### Prototype integrations of Weld with Spark (top left), NumPy (top right), and TensorFlow (bottom left) show up to 30x improvements over the native framework implementations, with no changes to users’ application code. Cross library optimizations between Pandas and NumPy (bottom right) can improve performance by up to two orders of magnitude._
 
 
