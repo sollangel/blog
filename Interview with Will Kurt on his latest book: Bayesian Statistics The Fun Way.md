@@ -13,6 +13,7 @@ Finally I wanted to thank two members of my team (Pablo Amoroso and Juan Bono) f
                                                   . . .
 Reach me via twitter at @federicocarrone if you have any comments or interview request for This is not a Monad tutorial.
 If you have an idea, you are looking for a part time CTO, need a team of devs or have maintenance work ping us: LambdaClass.
+
                                                   . . .
 
 **1. Why a new statistics book?**
