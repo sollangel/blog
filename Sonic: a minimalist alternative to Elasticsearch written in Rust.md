@@ -80,3 +80,7 @@ Yes, looks like Sonic worked great so far. Crisp search is now snappy and our re
 
 Our Sonic instance indexes half a billion objects (messages, articles, contacts). The compressed index is 20GB, and CPU usage under load is 10% of 1 Intel Xeon core. Sonic uses ~200MB of RAM for such a large index at worst, and 20MB when it’s cold-started. Search latency is under 1ms.
 
+   . . .
+  
+-   [Elasticsearch](https://notamonadtutorial.com/tagged/elasticsearch)
+-   [Rust](https://notamonadtutorial.com/tagged/rust)
