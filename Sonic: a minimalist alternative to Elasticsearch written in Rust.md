@@ -9,5 +9,9 @@ I always end up using Elasticsearch to index documents, to generate autocomplete
 
 Since we love databases and we are trying to focus on Rust projects, [Amin Arria](http://twitter.com/nenearria) and I decided to interview Sonic’s creator, [Valerian Saliou,](https://github.com/valeriansaliou) who generously agreed. Also remember to check Sonic’s [repository](https://github.com/valeriansaliou/sonic).
                                                                . . . 
+_I‘ve created a Not a Monad Tutorial newsletter so that you receive an email whenever we publish a new story._ [_Sign up_](https://mailchi.mp/9302d4f60de9/not-a-monad-tutorial)_!_
+
+_Reach me via twitter at_ [@_federicocarrone_](https://twitter.com/federicocarrone/) _if you have any comments or interview request for_ [_This is not a Monad tutorial_](https://medium.com/this-is-not-a-monad-tutorial/)_._                                                          
+                                                               . . . 
 
 
