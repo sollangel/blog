@@ -7,7 +7,7 @@ Also remember that we’ve created a Not a Monad Tutorial newsletter so that you
 
 Reach me via twitter at [@unbalancedparen](https://twitter.com/unbalancedparen) if you have any comments or interview request for [This is not a Monad tutorial](https://medium.com/this-is-not-a-monad-tutorial/).
 
-                                                                 . . .  
+                                                          . . .  
    My role at Lambda is to help young developers train their social skills to perform their best. Soft skills are not secondary to technical knowledge — they are what makes knowledge shine by making it useful to the human beings with and for which we work. A lot of good technical developers tend to underestimate the need of social/soft skills.
 
 First of all let’s define what social skills are. According to wikipedia social skills involve:
