@@ -12,5 +12,14 @@ To sum up we (me and [Juan Bono](https://twitter.com/JuanBono)) decided to do th
 
 ![](https://miro.medium.com/max/460/1*x_OU1YRmBR8037eqsSAfYA.png?q=20)
 
-
 I ‘ve created a Not a Monad Tutorial newsletter so that you receive an email whenever we publish a new story. [Sign up!](https://mailchi.mp/9302d4f60de9/not-a-monad-tutorial)
+
+Reach me via twitter at [@unbalancedparen](https://twitter.com/unbalancedparen) if you have any comments or interview request for [This is not a Monad tutorial](https://medium.com/this-is-not-a-monad-tutorial/).
+
+                                    . . .
+
+**Tell us a little about yourself. Have you been working on programming languages for long?**
+
+Professionally I’m a web programmer, but over the last 4 years my hobby projects have largely been compilers in one form or another. Two of the most popular ones have been Dogma (an Elixir to angry error message compiler) and exfmt (an Elixir to slightly prettier Elixir formatter). For the last year I’ve been focusing on Gleam, which is an ML inspired statically typed language for the Erlang ecosystem.
+
+
