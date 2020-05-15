@@ -6,7 +6,7 @@ That is how I contacted and interviewed [Shoumik Palkar](https://shoumik.xyz/), 
 
 Weld is far from being production ready but it is promising. If you are interested in the future of data science and in Rust, you will like this interview.
 
-![](https://miro.medium.com/max/460/1*hqC6KtF-l1RN8uDg99rmow.png?q=20)
+![](https://miro.medium.com/max/360/1*hqC6KtF-l1RN8uDg99rmow.png?q=20)
 ###### Not a Monad Tutorial new logo!
 
 
