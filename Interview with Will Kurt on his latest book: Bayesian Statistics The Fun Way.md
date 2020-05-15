@@ -11,8 +11,10 @@ If you like the interview I recommend that you also read the interviews we did w
 Finally I wanted to thank two members of my team (Pablo Amoroso and Juan Bono) for helping me with the interview.
 
                                                   . . .
-*Reach me via twitter at @federicocarrone if you have any comments or interview request for This is not a Monad tutorial.
-If you have an idea, you are looking for a part time CTO, need a team of devs or have maintenance work ping us: LambdaClass.*
+_Reach me via twitter at_ [@_federicocarrone_](https://twitter.com/federicocarrone/) _if you have any comments or interview request for_ [_This is not a Monad tutorial_](https://medium.com/this-is-not-a-monad-tutorial/)_._
+
+_If you have an idea, you are looking for a part time CTO, need a team of devs or have maintenance work ping us:_ [_LambdaClass_](https://lambdaclass.com/)_._
+
 
                                                   . . .
 
