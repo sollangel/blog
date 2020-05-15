@@ -90,3 +90,11 @@ let {name = name, score = score} = player
 
 However that syntax has already been taken by tuples, so something would need to change for us to have this feature.
 
+**What recommendations would you give to someone who wants to start writing their first programming language?**
+
+Write lots of code in your language before writing the compiler! Solve lots of simple problems and compile it in your mind so that you can work out how all the different features would interplay and how it might work under the hood. Writing a compiler takes a lot of time so the more experimentation and learning you can do to build confidence in your language design the better. Changing syntax when you have one file of fake code takes seconds, while with a compiler it may take many hours. Worse still, changing the semantics of your language in your compiler could take days or weeks. It pays to get the design right first.
+
+   . . . 
+-   [Erlang](https://notamonadtutorial.com/tagged/erlang)
+-   [Rust](https://notamonadtutorial.com/tagged/rust)
+-   [Programming Languages](https://notamonadtutorial.com/tagged/programming-languages)
