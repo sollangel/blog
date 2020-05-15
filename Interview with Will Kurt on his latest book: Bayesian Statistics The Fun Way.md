@@ -72,4 +72,16 @@ The heart of the problem is that, deep down, we really want to believe that the 
 
 There’s two things wrong with p-values. First of all, p-values are not the way sane people answer questions. Imagine how this conversation would sound at work:
 
+>*Manager: “Did you fix that bug assigned to you?”*
+>
+>*You: “Well I’m pretty sure I didn’t not fix it…”*
+>
+>*Manager: “If you fixed it, just mark it fixed.”*
+>
+>*You: “Oh no, I really can’t say that I fixed it…”*
+>
+>*Manager: “So you want to mark it ‘will not fix’?”*
+>
+>*You: “No, no, I’m pretty sure that’s not the case”*
+
 
