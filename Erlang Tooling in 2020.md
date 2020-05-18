@@ -38,7 +38,6 @@ Well… It was a hack week, right? It was 90% trial & error. Or, more accurately
 Jokes aside, we knew what we wanted from the very first day: We were going to create a tool capable of parsing, formatting and not breaking Erlang code. We didn’t want the formatted code to be **pretty**, we just wanted it to be **consistently ugly**. And we achieved that: as I said before… you can check that version (0.0.1) on hex.pm.
 
 To achieve that goal, we wanted to use as many existing tools as we could find (we didn’t want to reinvent the wheel). That’s when Juan Bono came in. In pure hackathon-style, we were working on different time-zones. I was in Barcelona and Juan was in Buenos Aires. By the time I was done for the day, his day had just started. So I told him, for instance: “We need a tool to parse Erlang terms and another one to print them out”. My next day started with a message from him like “I found epp to parse and erl_prettypr to produce the formatted output”. I implemented our solution with them and came back with “But epp doesn’t handle macros well” and “erl_prettypr is very limited”, so he dug up stuff again and told me about epp_dodger and the many different reimplementations of erl_prettypr in different projects… trial & error again… and the process repeated.
-
 At the same time, Diego was constantly trying to find strange edge cases to break our formatter and he found some **very very strange stuff**, too. Check the test app on the rebar3_format repo and I promise you, you will say “but… you can actually do that?” more than once.
 
 # How does the Erlang formatter compare to other well-known formatting tools (e.g. go fmt, mix format, or rustfmt)?
@@ -46,7 +45,6 @@ At the same time, Diego was constantly trying to find strange edge cases to brea
 On one hand, rebar3 format is still much younger and less battle-tested than those tools.
 
 It’s also not _the official formatter_… yet? Hey! OTP team… if you read this maybe it would be a good idea to have a conversation ;) — I’ll visit Stockholm soon, just saying…
-
 On the other hand, the tools that you mention (particularly mix format) are much more _strongly opinionated_ than rebar3 format. There is practically just _one way_ to format code with them.
 
 Knowing that it will be very very hard to convince every Erlang developer in the world to format their code in the same way, we aimed at a more humble goal: To convince every Erlang developer in the world to format their code **with the same tool**. You can keep your style, any style, but you use rebar3 format to apply it to your whole project at once. That way, reformatting your code in _my style_ is just a matter of running a single command on the console: _rebar3 as brujo format_. I’m a ROK-style comma-first fan after all… and that’s certainly not the default formatting style ;)
@@ -56,7 +54,6 @@ Knowing that it will be very very hard to convince every Erlang developer in the
 I think the main issue we had was the lack of clear documentation and extensibility around existing tools. The work Juan did finding very obscure OTP modules with names like _epp_dodger_ that actually had functions that resembled what we actually needed or were close enough was invaluable. Much of the code was there, but it was invisible for the unprepared eye.
 
 If all those tools, like epp_dodger, erl_prettypr, etc were more visible and extensible, this formatter would’ve been a reality many years ago.
-
 # Handling comments along with valid code is a common difficulty that code analysing tools must deal with. How does the Erlang formatter handle this?
 
 Luckily for us, the tools provided by OTP already did most of the work. We need a few patches here and there, but it was mostly trivial stuff. On the other hand, there are still some comments that rebar3 format can’t handle in the most beautiful manner. Rebar3 format won’t lose any comment in your files, but it _might_ misplace them a bit, particularly if you want to add comments in things like type fields. Nothing that can’t be solved by manually moving the comments to a better place in the file.
@@ -75,13 +72,11 @@ A lot. In basically two levels:
 -   Then each formatter has its own list of options to use, the default formatter has approximately 10 different options you can tweak, but the OTP formatter only allows you to change _paper_ and _ribbon_.
 
 Of course, you can create your own formatter, too. You just need to implement the _rebar3_formatter_ behavior. We accept contributions! If you create a ROK-style formatter, **please** send a pull request with it!!
-
 # Which obstacles to adoption do you perceive? Or, What kind of adoption do you expect?
 
 Oddly enough, the biggest obstacle now will likely be the _competition._ As Daniel (@old-reliable) puts it: ‘_Do you think that this time will be remembered as “The Great Formatter Wars”?’_ For ages, there were no formatters for Erlang and many people complained about that. But now, there is not one, not two, but soon there will be **three** of them: rebar3 format, steamroller and one that Michał Muskała will soon present.
 
 In any case, we’re not sad, we believe that having three different formatters is far better than having none of them ;)
-
 # What do you think is in the future for the Erlang formatter?
 
 It’ll become the _de facto_ formatter for all Erlang code in the whole wide world, of course! You have to dream big, right?
@@ -114,9 +109,9 @@ Some weeks after I was at the Code Beam Stockholm conference. I attended a talk 
 
 There are currently three major implementations of the Language Server I am aware of:
 
->-   [Sourcer](https://github.com/erlang/sourcer)
->-   [VSCode Erlang](https://github.com/pgourlain/vscode_erlang)
->-   [Erlang LS](https://github.com/erlang-ls/erlang_ls)
+-   [Sourcer](https://github.com/erlang/sourcer)
+-   [VSCode Erlang](https://github.com/pgourlain/vscode_erlang)
+-   [Erlang LS](https://github.com/erlang-ls/erlang_ls)
 
 **Sourcer** is a 7 years old code-base (the Erlang plugin for Eclipse) converted to a Language Server. This makes it hard to contribute, if you are not familiar with the original project. Sourcer makes heavy use of custom libraries, such as scanners and parsers, while Erlang LS tries to leverage OTP libraries as much as possible. The project was last updated six months ago, so I don’t know the current status of its development. You can check-out [this blog post](https://medium.com/about-erlang/erlang-ls-a-comparison-with-sourcer-4e56a95c9120) for a more accurate comparison between Erlang LS and Sourcer.
 
@@ -129,31 +124,17 @@ Erlang LS is built from scratch to be a Language Server and it aims at being tru
 The way I see Erlang LS is that it should act as a _platform_ that allows third-party tools such as _elvis_ to smoothly integrate with your own development workflows.
 
 In the Erlang Community many tools exist which have lot of potential, but they are used in a very limited way by developers. The refactoring tools [Wrangler](https://www.cs.kent.ac.uk/projects/wrangler/Wrangler/Home.html) and [RefactorErl](https://plc.inf.elte.hu/erlang/) are good examples. In some cases this is because the installation process for a tool is not straightforward, in other cases tools are tightly coupled with a specific editor, which unavoidably limits their adoption. These tools could live a reinassance period if we get things right with Erlang LS. My hope is that, once a cross-editor platform is available, Erlang tools can find the attention they deserve.
-
 Another interesting situation is when competing tools exist for solving the same problem: _code formatters_, for example. The Erlang scene is currently experiencing a little _explosion_ in terms of formatting tools: AdRoll just released [rebar3_format](https://github.com/AdRoll/rebar3_format), and WhatsApp is presenting a new formatter at the Code Beam San Francisco as we speak. Dialyzer and [Gradualizer](https://github.com/josefs/Gradualizer) are another example: two different strategies, both with pros and cons, to achieve the very same goal. In these cases, the idea is to provide integrations for these tools via the Erlang LS _platform_. The tools should work _out-of-the-box_ and it should always possible for the end user to opt-in or opt-out a specific integration. The major challenge with this approach is not to end up with a Language Server bloated with dependencies.
 
-I’m also glad you mentioned `rebar3` since it falls into a very different category of tools which deserve a separate discussion. `rebar3` is a _building tool_. Erlang LS accepts low-level configuration parameters (dependency paths, include directories, custom macro definitions, etc), which can be set via a `erlang_ls.config` for a specific project and are used to instruct the server on how to build Erlang modules. We are also going to introduce the concept of _project type_, the first one being `rebar3`. Once a user marks a project as a `rebar3` one (we can of course automate this process by looking for presence of a `rebar.config` file), all the low-level configuration parameters required by the Language Server will be automatically inferred by the `rebar.config` file, minimizing the required configuration. This approach will make `rebar3` projects work _out-of-the-box_ with Erlang LS, while ensuring that Erlang LS can still be used by all those projects which do not use `rebar3` as their building tool of choice. We are also keeping an eye on the [Build Server Protocol](https://github.com/build-server-protocol/build-server-protocol), but that will require some more investigation.
+I’m also glad you mentioned 'rebar3' since it falls into a very different category of tools which deserve a separate discussion. 'rebar3' is a _building tool_. Erlang LS accepts low-level configuration parameters (dependency paths, include directories, custom macro definitions, etc), which can be set via a 'erlang_ls.config' for a specific project and are used to instruct the server on how to build Erlang modules. We are also going to introduce the concept of _project type_, the first one being 'rebar3'. Once a user marks a project as a 'rebar3' one (we can of course automate this process by looking for presence of a 'rebar.config' file), all the low-level configuration parameters required by the Language Server will be automatically inferred by the 'rebar.config' file, minimizing the required configuration. This approach will make 'rebar3' projects work _out-of-the-box_ with Erlang LS, while ensuring that Erlang LS can still be used by all those projects which do not use 'rebar3' as their building tool of choice. We are also keeping an eye on the [Build Server Protocol](https://github.com/build-server-protocol/build-server-protocol), but that will require some more investigation.
 
 # Did you encounter any challenges on the way to implementing the LSP protocol? any specific to Erlang?
 
-The LSP protocol is fairly new and it still has to go through its own maturity process. Some parts of the protocol are over-engineered, such as the handshaking and the shutdown sequence. The fact that the protocol supports two different transports (TCP and STDIO) feels unnecessary. Some of the concepts mentioned in the protocol are either not well explained (e.g. _document links_) or coupled to specific languages needs (e.g. the distinction between a `go-to-definion` vs a `go-to-declaration` vs a `go-to-implementation`). There is an interesting [Reddit](https://www.reddit.com/r/vim/comments/b3yzq4/a_lsp_client_maintainers_view_of_the_lsp_protocol/) post by the author of one of the Vim LSP clients which highlights some of the LSP protocol imperfections.
+The LSP protocol is fairly new and it still has to go through its own maturity process. Some parts of the protocol are over-engineered, such as the handshaking and the shutdown sequence. The fact that the protocol supports two different transports (TCP and STDIO) feels unnecessary. Some of the concepts mentioned in the protocol are either not well explained (e.g. _document links_) or coupled to specific languages needs (e.g. the distinction between a 'go-to-definion' vs a 'go-to-declaration' vs a 'go-to-implementation'). There is an interesting [Reddit](https://www.reddit.com/r/vim/comments/b3yzq4/a_lsp_client_maintainers_view_of_the_lsp_protocol/) post by the author of one of the Vim LSP clients which highlights some of the LSP protocol imperfections.
 
-Even if most of the IDE nowadays have decent LSP clients, some of them don’t. The IntelliJ integration has been particularly challenging for us because of this. Testing a Language Server is also not a trivial task. I actually have in mind to create of a testing framework for Language Servers combining property-based testing and the  [**Language Server Index Format**](https://microsoft.github.io/language-server-protocol/specifications/lsif/0.4.0/specification/), but that deserves a blog post on its own. Windows support has also revealed particularly challenging due to the fact of Windows/Erlang stacks in Travis CI or GitHub Actions.
 
-In terms of Erlang specific challenges, the major one has probably been to decide the database to use to persist indexed information. We currently settled on **Mnesia**, used as a key-value store, for two main reason: minimize the setup for the end user (Mnesia comes with Erlang/OTP, so it does not require any additional installation step) and it allows us to store Erlang terms without the need of encoding/decoding them. Mnesia comes with its own challenges, though. To get the performance we needed for big projects (up to 2 million lines of code) we had to dig into Mnesia internals and tweak a few settings. Mnesia is also a distributed database and it feels a bit like an overkill for a single-node project like Erlang LS. Will see if we decide to keep it or move to a different solution.
 
-Finally, the Erlang standard libraries still lack what, in my opinion, are very basic functionalities that one would expect from `stdlib`. We had to implement our own functions to delete a non-empty directory or deal with relative and absolute paths. Even if these functions are not hard to implement, they require time and we (as in members of the Erlang community) should all be a bit more pro-active in ensuring to contribute this type of functionalities to Erlang/OTP.
 
-# Did you find any advantages within the Erlang/BEAM tech stack when designing and implementing erlang_ls?
 
-Plenty of them. The experience of using Erlang to implement a Language Server has been awesome so far.
 
-Pattern matching and message passing, combined with the flexibility of maps to encode/decode JSON entities, make the implementation of the protocol straightforward. Lightweight processes allow us to implement features such as cancellable requests and background jobs — sometimes hard to implement using other technology stacks — in a trivial and idiomatic way. Behaviours give a wonderful way to separate generic and implementation-specific parts of the code (we use them heavily for implementing providers and transports). The **syntax_tools** libraries contain all the building blocks which are necessary to play with the Abstract Syntax Tree of your Erlang programs (even if they have their own quirks).
 
-The ability to attach to a running Language Server using a remote shell and to trace individual requests from a client plays a crucial role when you have to troubleshoot a bug, which would have required plenty of step-by-step debugging or io-formatting otherwise. Common Test groups are precious to parameterize your tests (we run them for both `stdout` and `TCP` transports).
-
-I could continue for a long time, but I will stop here. I really hope that Erlang LS will make it easier for newcomers to the Erlang Community to get a chance to get started with Erlang with minimal friction and to experience all of these wonderful advantages that a BEAM tech stack can provide you when implementing their own Erlang project.
-
-   . . .
--   [Erlang](https://notamonadtutorial.com/tagged/erlang)
--   [Tooling](https://notamonadtutorial.com/tagged/tooling)
