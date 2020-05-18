@@ -79,6 +79,7 @@ Algorithms that consider the information gain at each node to choose the next fe
 As an example, consider the picture below, where a decision tree method was used on the famous Iris flower dataset and two features were selected, the petal width, first with 0.8 cm as a threshold and then 1.75 cm. Setting aside how these specific features are selected, why use the ≤ 0.8 first? With the information gain calculation we described, we can provide an answer. We will call the feature that separates petal width on 0.8 cm _X_ and the other one _Y_.
 
 
-![](https://miro.medium.com/max/654/1*dEesB-YyIVG81qhIDn_T_w.png?q=20)
+![](https://miro.medium.com/max/454/1*dEesB-YyIVG81qhIDn_T_w.png?q=20)
+
 Applying _X_ first splits the 150 data points (usually one would split between training and test sets, here for simplicity we use the entire set) into two sets: one containing the entire _setosa_ class (50 points, corresponding to ≤ 0.8 cm) and nothing else, and the other containing the rest. In that case the calculations yield:
 
