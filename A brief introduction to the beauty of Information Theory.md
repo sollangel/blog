@@ -35,8 +35,7 @@ The plot is symmetrical around _p = 0.5_, with maxima at _p = 0_ and _p = 1_. Th
 The formula is commonly stated in terms of [information entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)), a measure Shannon devised that can be interpreted as the level of ‘uncertainty’ or ‘surprise’ associated with the channel.
 
 
-
-![](https://miro.medium.com/max/560/1*fCyO-nZidJEiOqwqDGWJ3g.png?q=20)
+![](https://miro.medium.com/max/360/1*fCyO-nZidJEiOqwqDGWJ3g.png?q=20)
 
 ![](https://miro.medium.com/max/560/1*s0z3MUCTtJvh_AsvxGg72g.png?q=20)
 
@@ -45,7 +44,7 @@ We can see that the entropy has a maximum at 1 when _p_ = ½, and minima at 0 fo
 More generally, given a random message _M_ that can take _n_ different values with probability _pᵢ_ for _i =_ 1,…,_n_, we define the entropy of the message as:
 
 
-![](https://miro.medium.com/max/460/1*ezweLprVK1INseQwDCN2yg.png?q=20)
+![](https://miro.medium.com/max/360/1*ezweLprVK1INseQwDCN2yg.png?q=20)
 
 ## Guess Who example
 
@@ -60,7 +59,7 @@ Moreover, an optimal question is one that divides the population evenly, that is
 
 But what if you can’t divide the characters evenly by their characteristics? To answer the question, first we recall the concept of entropy defined above. We can think of a question as a variable _X_ that splits the population into groups _xᵢ_ with probabilities _pᵢ_. For example, think of a question about the eye color of the character (the questions in the game are technically only _yes_ or _no_ but this can be generalized). With this in mind, the entropy of a question becomes:
 
-![](https://miro.medium.com/max/560/1*KZq1CO03SyEnsH0qLamzRQ.png?q=20)
+![](https://miro.medium.com/max/360/1*KZq1CO03SyEnsH0qLamzRQ.png?q=20)
 
 The intuition here is that with each possible answer, we gain an amount of information _— log_ _p_(_x_ᵢ), meaning that if we receive an answer with a very low probability (i.e. we ask if the character has a feature that is shared by very few people, and the answer is yes), the amount of information we gained is higher than an answer with more probability.
 
@@ -70,7 +69,7 @@ On the other hand, entropy is related to uncertainty. For example, if we flip a 
 
 One common use of entropy is in decision trees, where one uses a set of features (features that split the data into disjoint sets) to construct a flowchart for a classification problem. Here, a common question is: which order should we “apply” the features in to get the best splits? A possible solution is to recursively always use the feature that maximizes the _information gain_. If we’re working with a dataset _S_ and our feature is called _X_, the information gained on _S_ by _X_, _I_(_S_,_X_), is calculated as:
 
-![](https://miro.medium.com/max/560/1*tIzlfBpMihRvpfZICpWZJA.png?q=20)
+![](https://miro.medium.com/max/360/1*tIzlfBpMihRvpfZICpWZJA.png?q=20)
 
 where _H_(_S_|_X_) is the conditional entropy of _S_ given _X_. Intuitively, this is just the reduction in the entropy of the dataset _S_ if we know _X_. Thus, it makes sense to choose the features _X_ that maximize this value, as they will be the ones that reduce uncertainty the most, effectively obtaining the best splits.
 
@@ -87,7 +86,7 @@ Applying _X_ first splits the 150 data points (usually one would split between t
 ![](https://miro.medium.com/max/560/1*2dDOZS_8PGYonq3RZYoyAg.png?q=20)
 On the other hand, applying _Y_ first gives us one set with 50 _setosa_, 49 _versicolor_ and 5 _virginica_ (≤ 1.75 cm) and another with no _setosa_, 1 _versicolor_ and 45 _virginica_. This leaves us with:
 
-![](https://miro.medium.com/max/560/1*VCQsujq_mEufMZi1X4DGdw.png?q=20)
+![](https://miro.medium.com/max/360/1*VCQsujq_mEufMZi1X4DGdw.png?q=20)
 
 Thus the information gain from _X_ (petal width being under or over 0.8 cm) is greater than the one from _Y_, and we should use it first. This makes sense intuitively, as _X_ completely separates the _setosa_ class from the other two, whereas using _Y_ first gives a more entangled split.
 
