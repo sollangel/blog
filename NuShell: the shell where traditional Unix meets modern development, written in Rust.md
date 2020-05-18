@@ -26,3 +26,34 @@ In a way, it’s taking the original spirit of Unix — where you use pipelines 
 
 ![](https://miro.medium.com/max/560/1*u77ccTVL0VJ7Cw2xT_7puA.png?q=20)
 NuShell screen capture
+
+## **Why use Rust? How much experience did you have beforehand?**
+
+**Jonathan**: Yehuda and I have been writing Rust for at least 4 years. He was one of the first people to deploy Rust into production, long before it hit 1.0.
+
+Rust also just made sense. It naturally is crossplatform, it’s easy to optimize, it’s easy to harden against memory and threading issues, and after the initial learning curve it’s also quite a lot of fun to write. When you’re doing things in your free time, having something you’re looking forward to hacking on after work makes it a lot easier to do so day after day.
+
+## **Did using Rust present a challenge in some aspect?**
+
+**Yehuda Katz**: Quite the opposite! Rust and its ecosystem has two properties that are a really good fit for what we’re trying to do:
+
+1.  Cross-platform: There is a version of almost every basic crate that works on Windows, macOS, and Linux.
+2.  Rigorous: Rust doesn’t really have exceptions. Instead, Rust’s library ecosystem surfaces edge-cases as Results. When writing something like a shell, this saved us from all kinds of problems as we evolved.
+
+Rust also has a great package manager (Cargo), which means that gluing together fast, cross-platform, and rigorous packages from the ecosystem is really easy.
+
+## **How do you go about making software cross-platform in Rust? Is it as much work as one would think?**
+
+**Yehuda**: Not really. What you do is look for crates on [crates.io](https://crates.io/) that support Windows. Most of the time, crates that claim to care about Windows support Windows, as well as other platforms.
+
+**Jonathan**: Rust is definitely my preferred tool for crossplatform development these days. Like Yehuda mentions, most crates work across Windows, macOS, and Linux. We’ll also likely explore making Nu work in the browser in the future, which would mean WASM support, and Rust is probably the best language for that as well.
+
+## **Why did you decide to ignore POSIX-compliance?**
+
+**Yehuda**: This question is a little bit misleading in my opinion. When people say that a shell is “POSIX compliant”, they’re talking about a tiny subset of the syntax and features that people come to rely on in a shell. If you want to run a POSIX shell script in nu, you can just run it with bash or sh. On the other hand, trying to make our syntax perfectly compliant with the POSIX standard would introduce all kinds of weird decades-old cruft and constrain the ergonomics of our syntax.
+
+**Jonathan**: When people ask for POSIX-compliance, I think different people mean different things. Generally, I think they mean “don’t break my muscle memory”. That’s fair, it’s annoying to unlearn habits. That said, what it means to be compatible has changed a lot from the original ideas. I saw this tweet the other day which I thought sums it up pretty well:
+
+![](https://miro.medium.com/max/267/1*gQH1jV4nzbs_WurExrLnEw.png)
+Source: [Dan Luu](https://twitter.com/danluu/status/1234814736144797697)
+
