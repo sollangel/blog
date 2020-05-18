@@ -132,9 +132,25 @@ I’m also glad you mentioned 'rebar3' since it falls into a very different cate
 
 The LSP protocol is fairly new and it still has to go through its own maturity process. Some parts of the protocol are over-engineered, such as the handshaking and the shutdown sequence. The fact that the protocol supports two different transports (TCP and STDIO) feels unnecessary. Some of the concepts mentioned in the protocol are either not well explained (e.g. _document links_) or coupled to specific languages needs (e.g. the distinction between a 'go-to-definion' vs a 'go-to-declaration' vs a 'go-to-implementation'). There is an interesting [Reddit](https://www.reddit.com/r/vim/comments/b3yzq4/a_lsp_client_maintainers_view_of_the_lsp_protocol/) post by the author of one of the Vim LSP clients which highlights some of the LSP protocol imperfections.
 
+Even if most of the IDE nowadays have decent LSP clients, some of them don’t. The IntelliJ integration has been particularly challenging for us because of this. Testing a Language Server is also not a trivial task. I actually have in mind to create of a testing framework for Language Servers combining property-based testing and the  [**Language Server Index Format**](https://microsoft.github.io/language-server-protocol/specifications/lsif/0.4.0/specification/), but that deserves a blog post on its own. Windows support has also revealed particularly challenging due to the fact of Windows/Erlang stacks in Travis CI or GitHub Actions.
 
+In terms of Erlang specific challenges, the major one has probably been to decide the database to use to persist indexed information. We currently settled on **Mnesia**, used as a key-value store, for two main reason: minimize the setup for the end user (Mnesia comes with Erlang/OTP, so it does not require any additional installation step) and it allows us to store Erlang terms without the need of encoding/decoding them. Mnesia comes with its own challenges, though. To get the performance we needed for big projects (up to 2 million lines of code) we had to dig into Mnesia internals and tweak a few settings. Mnesia is also a distributed database and it feels a bit like an overkill for a single-node project like Erlang LS. Will see if we decide to keep it or move to a different solution.
 
+Finally, the Erlang standard libraries still lack what, in my opinion, are very basic functionalities that one would expect from `stdlib`. We had to implement our own functions to delete a non-empty directory or deal with relative and absolute paths. Even if these functions are not hard to implement, they require time and we (as in members of the Erlang community) should all be a bit more pro-active in ensuring to contribute this type of functionalities to Erlang/OTP.
 
+# Did you find any advantages within the Erlang/BEAM tech stack when designing and implementing erlang_ls?
 
+Plenty of them. The experience of using Erlang to implement a Language Server has been awesome so far.
+
+Pattern matching and message passing, combined with the flexibility of maps to encode/decode JSON entities, make the implementation of the protocol straightforward. Lightweight processes allow us to implement features such as cancellable requests and background jobs — sometimes hard to implement using other technology stacks — in a trivial and idiomatic way. Behaviours give a wonderful way to separate generic and implementation-specific parts of the code (we use them heavily for implementing providers and transports). The **syntax_tools** libraries contain all the building blocks which are necessary to play with the Abstract Syntax Tree of your Erlang programs (even if they have their own quirks).
+
+The ability to attach to a running Language Server using a remote shell and to trace individual requests from a client plays a crucial role when you have to troubleshoot a bug, which would have required plenty of step-by-step debugging or io-formatting otherwise. Common Test groups are precious to parameterize your tests (we run them for both `stdout` and `TCP` transports).
+
+I could continue for a long time, but I will stop here. I really hope that Erlang LS will make it easier for newcomers to the Erlang Community to get a chance to get started with Erlang with minimal friction and to experience all of these wonderful advantages that a BEAM tech stack can provide you when implementing their own Erlang project.
+
+   . . .
+
+-   [Erlang](https://notamonadtutorial.com/tagged/erlang)
+-   [Tooling](https://notamonadtutorial.com/tagged/tooling)
 
 
