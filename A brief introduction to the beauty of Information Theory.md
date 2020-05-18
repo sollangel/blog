@@ -84,6 +84,7 @@ Applying _X_ first splits the 150 data points (usually one would split between t
 
 
 ![](https://miro.medium.com/max/560/1*2dDOZS_8PGYonq3RZYoyAg.png?q=20)
+
 On the other hand, applying _Y_ first gives us one set with 50 _setosa_, 49 _versicolor_ and 5 _virginica_ (≤ 1.75 cm) and another with no _setosa_, 1 _versicolor_ and 45 _virginica_. This leaves us with:
 
 ![](https://miro.medium.com/max/560/1*VCQsujq_mEufMZi1X4DGdw.png?q=20)
