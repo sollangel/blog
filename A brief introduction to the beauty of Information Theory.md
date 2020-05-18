@@ -53,6 +53,32 @@ Let’s take a different approach. Suppose you are playing _Guess Who_, the game
 
 
 
-![](https://miro.medium.com/max/560/1*TkW9quvg52IBgM06fM-7IA.jpeg)Hardcore Guess Who gamers apply Information Theory for optimal results
+![](https://miro.medium.com/max/560/1*TkW9quvg52IBgM06fM-7IA.jpeg)
+Hardcore Guess Who gamers apply Information Theory for optimal results
 
+Moreover, an optimal question is one that divides the population evenly, that is, one that regardless of the answer (_yes_ or _no_) discards half the characters. In any other case, you are not gaining the optimal amount of information with each question.
+
+But what if you can’t divide the characters evenly by their characteristics? To answer the question, first we recall the concept of entropy defined above. We can think of a question as a variable _X_ that splits the population into groups _xᵢ_ with probabilities _pᵢ_. For example, think of a question about the eye color of the character (the questions in the game are technically only _yes_ or _no_ but this can be generalized). With this in mind, the entropy of a question becomes:
+
+![](https://miro.medium.com/max/560/1*KZq1CO03SyEnsH0qLamzRQ.png?q=20)
+
+The intuition here is that with each possible answer, we gain an amount of information _— log_ _p_(_x_ᵢ), meaning that if we receive an answer with a very low probability (i.e. we ask if the character has a feature that is shared by very few people, and the answer is yes), the amount of information we gained is higher than an answer with more probability.
+
+On the other hand, entropy is related to uncertainty. For example, if we flip a coin, the uncertainty in the outcome is higher with a _p_ = 0.5 than with any other value of _p_. And in our case, more uncertainty is better. Why? If we choose a question with an uneven distribution in the population, lets say 0.7 and 0.3, the odds are that our character is among the 70%, discarding with the _no_ answer only the remaining 30%, but with a more even division (and therefore more uncertain), we always tend to discard 50% of the population, leading to an advantage in the long run. This means that the best questions to ask are those that maximize the entropy, i.e, the ones with the higher uncertainty.
+
+## Decision Trees
+
+One common use of entropy is in decision trees, where one uses a set of features (features that split the data into disjoint sets) to construct a flowchart for a classification problem. Here, a common question is: which order should we “apply” the features in to get the best splits? A possible solution is to recursively always use the feature that maximizes the _information gain_. If we’re working with a dataset _S_ and our feature is called _X_, the information gained on _S_ by _X_, _I_(_S_,_X_), is calculated as:
+
+![](https://miro.medium.com/max/560/1*tIzlfBpMihRvpfZICpWZJA.png?q=20)
+
+where _H_(_S_|_X_) is the conditional entropy of _S_ given _X_. Intuitively, this is just the reduction in the entropy of the dataset _S_ if we know _X_. Thus, it makes sense to choose the features _X_ that maximize this value, as they will be the ones that reduce uncertainty the most, effectively obtaining the best splits.
+
+Algorithms that consider the information gain at each node to choose the next feature are called _greedy_ algorithms. Such algorithms do not take into account the overall information gain and may lead in some cases to suboptimal queries, but they are well-behaved and have a straightforward approach.
+
+As an example, consider the picture below, where a decision tree method was used on the famous Iris flower dataset and two features were selected, the petal width, first with 0.8 cm as a threshold and then 1.75 cm. Setting aside how these specific features are selected, why use the ≤ 0.8 first? With the information gain calculation we described, we can provide an answer. We will call the feature that separates petal width on 0.8 cm _X_ and the other one _Y_.
+
+
+![](https://miro.medium.com/max/654/1*dEesB-YyIVG81qhIDn_T_w.png?q=20)
+Applying _X_ first splits the 150 data points (usually one would split between training and test sets, here for simplicity we use the entire set) into two sets: one containing the entire _setosa_ class (50 points, corresponding to ≤ 0.8 cm) and nothing else, and the other containing the rest. In that case the calculations yield:
 
