@@ -83,3 +83,31 @@ As an example, consider the picture below, where a decision tree method was used
 
 Applying _X_ first splits the 150 data points (usually one would split between training and test sets, here for simplicity we use the entire set) into two sets: one containing the entire _setosa_ class (50 points, corresponding to ≤ 0.8 cm) and nothing else, and the other containing the rest. In that case the calculations yield:
 
+
+![](https://miro.medium.com/max/560/1*2dDOZS_8PGYonq3RZYoyAg.png?q=20)
+On the other hand, applying _Y_ first gives us one set with 50 _setosa_, 49 _versicolor_ and 5 _virginica_ (≤ 1.75 cm) and another with no _setosa_, 1 _versicolor_ and 45 _virginica_. This leaves us with:
+
+![](https://miro.medium.com/max/560/1*VCQsujq_mEufMZi1X4DGdw.png?q=20)
+
+Thus the information gain from _X_ (petal width being under or over 0.8 cm) is greater than the one from _Y_, and we should use it first. This makes sense intuitively, as _X_ completely separates the _setosa_ class from the other two, whereas using _Y_ first gives a more entangled split.
+
+## Conclusion
+
+It is hard to overstate the importance of Shannon’s work: the Theory of Information has found [many applications](https://www.britannica.com/science/information-theory/Applications-of-information-theory) in fields as diverse as statistical inference and machine learning, natural language processing, genetics, data compression, coding theory, and cryptography. With over 120,000 citations, few papers can boast a similar impact. In the words of information theorist Anthony Ephremides:
+
+ *It was like an earthquake and the aftershocks haven’t finished yet!*
+
+                     . . . 
+
+Join the Not a Monad Tutorial Telegram [group](https://t.me/notamonadtutorial) or [channel](https://t.me/channel_notamonadtutorial) to talk about programming, computer science and papers. See you there!
+
+                     . . . 
+_If you are looking for good engineers send me an email to mail@fcarrone.com or you can also reach me via twitter at_ [_@federicocarrone_](https://twitter.com/federicocarrone)_._
+
+
+   . . .
+-   [Math](https://notamonadtutorial.com/tagged/math)
+-   [Statistics](https://notamonadtutorial.com/tagged/statistics)
+-   [Data Science](https://notamonadtutorial.com/tagged/data-science)
+-   [Information Theory](https://notamonadtutorial.com/tagged/information-theory)
+-   [Decision Tree](https://notamonadtutorial.com/tagged/decision-tree)
